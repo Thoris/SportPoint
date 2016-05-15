@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPoint.Server.Dao", "Sp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPoint.Server.Business", "SportPoint.Server.Business\SportPoint.Server.Business.csproj", "{072868CF-0B54-436E-A2AD-822ECF4B464E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Portal", "Portal", "{A84F8EF4-C5FB-4882-8FF9-39ABAA0C447B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPoint.Server.Portal", "SportPoint.Server.Portal\SportPoint.Server.Portal.csproj", "{8799F250-2054-4266-844E-C5D844ADD4CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPoint.Server.Dao.EF", "SportPoint.Server.Dao.EF\SportPoint.Server.Dao.EF.csproj", "{DE6A7DE8-7C35-4BB8-8456-477A61E62B6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +35,14 @@ Global
 		{072868CF-0B54-436E-A2AD-822ECF4B464E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{072868CF-0B54-436E-A2AD-822ECF4B464E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{072868CF-0B54-436E-A2AD-822ECF4B464E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8799F250-2054-4266-844E-C5D844ADD4CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8799F250-2054-4266-844E-C5D844ADD4CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8799F250-2054-4266-844E-C5D844ADD4CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8799F250-2054-4266-844E-C5D844ADD4CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE6A7DE8-7C35-4BB8-8456-477A61E62B6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE6A7DE8-7C35-4BB8-8456-477A61E62B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE6A7DE8-7C35-4BB8-8456-477A61E62B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE6A7DE8-7C35-4BB8-8456-477A61E62B6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,5 +51,7 @@ Global
 		{DB26AFCF-ABBD-450B-A8DA-201CF4E84258} = {D0E1CD58-E4EC-4F98-A78A-7A55BC5BFACE}
 		{B4671D60-D0D6-448B-93C8-6D054BA93B5B} = {D0E1CD58-E4EC-4F98-A78A-7A55BC5BFACE}
 		{072868CF-0B54-436E-A2AD-822ECF4B464E} = {D0E1CD58-E4EC-4F98-A78A-7A55BC5BFACE}
+		{8799F250-2054-4266-844E-C5D844ADD4CF} = {A84F8EF4-C5FB-4882-8FF9-39ABAA0C447B}
+		{DE6A7DE8-7C35-4BB8-8456-477A61E62B6C} = {D0E1CD58-E4EC-4F98-A78A-7A55BC5BFACE}
 	EndGlobalSection
 EndGlobal

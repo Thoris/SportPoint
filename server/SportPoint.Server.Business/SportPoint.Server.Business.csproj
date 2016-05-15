@@ -41,6 +41,20 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SportPoint.Server.Dao.EF\SportPoint.Server.Dao.EF.csproj">
+      <Project>{de6a7de8-7c35-4bb8-8456-477a61e62b6c}</Project>
+      <Name>SportPoint.Server.Dao.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Dao\SportPoint.Server.Dao.csproj">
+      <Project>{b4671d60-d0d6-448b-93c8-6d054ba93b5b}</Project>
+      <Name>SportPoint.Server.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Entities\SportPoint.Server.Entities.csproj">
+      <Project>{db26afcf-abbd-450b-a8da-201cf4e84258}</Project>
+      <Name>SportPoint.Server.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

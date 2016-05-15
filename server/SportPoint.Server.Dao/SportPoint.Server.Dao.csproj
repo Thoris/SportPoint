@@ -41,6 +41,12 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SportPoint.Server.Entities\SportPoint.Server.Entities.csproj">
+      <Project>{db26afcf-abbd-450b-a8da-201cf4e84258}</Project>
+      <Name>SportPoint.Server.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
