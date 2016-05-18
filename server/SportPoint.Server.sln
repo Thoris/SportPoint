@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessObjects", "BusinessObjects", "{D0E1CD58-E4EC-4F98-A78A-7A55BC5BFACE}"
 EndProject
@@ -16,6 +16,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPoint.Server.Portal", "SportPoint.Server.Portal\SportPoint.Server.Portal.csproj", "{8799F250-2054-4266-844E-C5D844ADD4CF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPoint.Server.Dao.EF", "SportPoint.Server.Dao.EF\SportPoint.Server.Dao.EF.csproj", "{DE6A7DE8-7C35-4BB8-8456-477A61E62B6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{2B462968-4CDD-4BBD-A22E-44621382561C}"
+	ProjectSection(SolutionItems) = preProject
+		database\DB.xml = database\DB.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
