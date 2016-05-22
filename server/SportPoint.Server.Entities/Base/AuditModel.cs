@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportPoint.Server.Entities
+namespace SportPoint.Server.Entities.Base
 {
     /// <summary>
     /// Classe base da entidade que possui informações básicas do registro.
     /// </summary>
-    public class EntityBase
+    public class AuditModel
     {
         #region Properties
 
