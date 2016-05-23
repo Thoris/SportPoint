@@ -39,6 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseAuditBO.cs" />
+    <Compile Include="BaseGenericBusinessBO.cs" />
+    <Compile Include="IGenericBusiness.cs" />
+    <Compile Include="JogadorBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

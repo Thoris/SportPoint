@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace SportPoint.Server.Entities
 {
-    public class Jogador : Base.IdEntityBase
+    /// <summary>
+    /// Entidade do jogador.
+    /// </summary>
+    public class Jogador : Usuario
     {
         #region Properties
-
-        public string Login { get; set; }
-        public string Senha { get; set; }
+        
+        /// <summary>
+        /// Nome do jogador.
+        /// </summary>
         public string Nome { get; set; }
+        /// <summary>
+        /// Data de Nascimento.
+        /// </summary>
         public DateTime DataNascimento { get; set; }
 
         #endregion

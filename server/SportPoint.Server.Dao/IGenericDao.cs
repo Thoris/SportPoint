@@ -11,14 +11,14 @@ namespace SportPoint.Server.Dao
     /// Interface de acesso à base de dados que trabalha com métodos genéricos de acesso.
     /// </summary>
     /// <typeparam name="T">Tipo de objeto a ser manipulado.</typeparam>
-    public interface IGenericDao<T>
+    public interface IGenericDao<T, L> where T : class
     {
         /// <summary>
         /// Método que busca uma entrada através do identificador.
         /// </summary>
         /// <param name="id">Identificador a ser pesquisado.</param>
         /// <returns>Item encontrado, ou null caso não encontre.</returns>
-        T Find(int id);
+        T Find(L id);
         /// <summary>
         /// Método que carrega um registro a partir de dados básicos da entidade.
         /// </summary>

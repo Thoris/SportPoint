@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IFactoryDao.cs" />
     <Compile Include="IGenericDao.cs" />
     <Compile Include="IJogadorDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

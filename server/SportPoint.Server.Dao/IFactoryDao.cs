@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 namespace SportPoint.Server.Dao
 {
     /// <summary>
-    /// Interface que possui as funcionalidades básicas de acesso à dados para gerenciamento do jogador.
+    /// Interface usada para definir a fabrica de objetos de acesso à banco de dados.
     /// </summary>
-    public interface IJogadorDao : IGenericDao<Entities.Jogador, long>, IFactoryDao
+    public interface IFactoryDao
     {
+        
     }
 }
