@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessObjects", "BusinessObjects", "{D0E1CD58-E4EC-4F98-A78A-7A55BC5BFACE}"
 EndProject
@@ -25,6 +25,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPoint.Server.Services", "SportPoint.Server.Services\SportPoint.Server.Services.csproj", "{8517F720-AAAD-468C-AA8B-2CC036C99019}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPoint.Server.Integration", "SportPoint.Server.Integration\SportPoint.Server.Integration.csproj", "{37DCF071-4B39-4ACF-AE21-6D4D24DB3BAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPoint.Server.Resources", "SportPoint.Server.Resources\SportPoint.Server.Resources.csproj", "{370136BE-793C-473D-8F73-666A7E2E5D93}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{9CD4F45A-902A-4BAE-BA3D-ACF04E4D6038}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPoint.Server.LogManager", "SportPoint.Server.LogManager\SportPoint.Server.LogManager.csproj", "{202C71BC-147C-4FDF-B991-5E428E851604}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{CEB978BF-A7BB-4D86-8720-2627FF3FA4CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +68,14 @@ Global
 		{37DCF071-4B39-4ACF-AE21-6D4D24DB3BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37DCF071-4B39-4ACF-AE21-6D4D24DB3BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37DCF071-4B39-4ACF-AE21-6D4D24DB3BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{370136BE-793C-473D-8F73-666A7E2E5D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{370136BE-793C-473D-8F73-666A7E2E5D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{370136BE-793C-473D-8F73-666A7E2E5D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{370136BE-793C-473D-8F73-666A7E2E5D93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{202C71BC-147C-4FDF-B991-5E428E851604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{202C71BC-147C-4FDF-B991-5E428E851604}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{202C71BC-147C-4FDF-B991-5E428E851604}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{202C71BC-147C-4FDF-B991-5E428E851604}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,5 +88,7 @@ Global
 		{DE6A7DE8-7C35-4BB8-8456-477A61E62B6C} = {D0E1CD58-E4EC-4F98-A78A-7A55BC5BFACE}
 		{8517F720-AAAD-468C-AA8B-2CC036C99019} = {A84F8EF4-C5FB-4882-8FF9-39ABAA0C447B}
 		{37DCF071-4B39-4ACF-AE21-6D4D24DB3BAA} = {D0E1CD58-E4EC-4F98-A78A-7A55BC5BFACE}
+		{370136BE-793C-473D-8F73-666A7E2E5D93} = {9CD4F45A-902A-4BAE-BA3D-ACF04E4D6038}
+		{202C71BC-147C-4FDF-B991-5E428E851604} = {9CD4F45A-902A-4BAE-BA3D-ACF04E4D6038}
 	EndGlobalSection
 EndGlobal

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SportPoint.Server.Dao")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Objeto que possui a camada declaração de estrutura para acesso à dados.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SportPoint.Server.Dao")]

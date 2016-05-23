@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{072868CF-0B54-436E-A2AD-822ECF4B464E}</ProjectGuid>
+    <ProjectGuid>{370136BE-793C-473D-8F73-666A7E2E5D93}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SportPoint.Server.Business</RootNamespace>
-    <AssemblyName>SportPoint.Server.Business</AssemblyName>
+    <RootNamespace>SportPoint.Server.Resources</RootNamespace>
+    <AssemblyName>SportPoint.Server.Resources</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,28 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SportPoint.Server.Dao.EF\SportPoint.Server.Dao.EF.csproj">
-      <Project>{de6a7de8-7c35-4bb8-8456-477a61e62b6c}</Project>
-      <Name>SportPoint.Server.Dao.EF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SportPoint.Server.Dao\SportPoint.Server.Dao.csproj">
-      <Project>{b4671d60-d0d6-448b-93c8-6d054ba93b5b}</Project>
-      <Name>SportPoint.Server.Dao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SportPoint.Server.Entities\SportPoint.Server.Entities.csproj">
-      <Project>{db26afcf-abbd-450b-a8da-201cf4e84258}</Project>
-      <Name>SportPoint.Server.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SportPoint.Server.LogManager\SportPoint.Server.LogManager.csproj">
-      <Project>{202c71bc-147c-4fdf-b991-5e428e851604}</Project>
-      <Name>SportPoint.Server.LogManager</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SportPoint.Server.Resources\SportPoint.Server.Resources.csproj">
-      <Project>{370136be-793c-473d-8f73-666a7e2e5d93}</Project>
-      <Name>SportPoint.Server.Resources</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

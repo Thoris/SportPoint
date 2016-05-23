@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SportPoint.Server.Services")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Camada de serviços para realização das tarefas do portal.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SportPoint.Server.Services")]

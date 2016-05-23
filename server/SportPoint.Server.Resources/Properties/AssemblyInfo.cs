@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SportPoint.Server.Business")]
-[assembly: AssemblyDescription("Objeto que possui a camada de regras de negócio.")]
+[assembly: AssemblyTitle("SportPoint.Server.Resources")]
+[assembly: AssemblyDescription("Objeto que possui os recursos de idiomas.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SportPoint.Server.Business")]
+[assembly: AssemblyProduct("SportPoint.Server.Resources")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("862d01e6-b93a-4107-980e-052fc8e755c6")]
+[assembly: Guid("6c4f3c8c-dbca-4550-8a0b-e5ffce3578de")]
 
 // Version information for an assembly consists of the following four values:
 //
