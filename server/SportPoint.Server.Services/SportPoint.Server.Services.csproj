@@ -99,6 +99,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\AuthorizationController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\GenericApiController.cs" />
+    <Compile Include="Controllers\JogadorApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -116,8 +121,25 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SportPoint.Server.Business\SportPoint.Server.Business.csproj">
+      <Project>{072868cf-0b54-436e-a2ad-822ecf4b464e}</Project>
+      <Name>SportPoint.Server.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Dao.EF\SportPoint.Server.Dao.EF.csproj">
+      <Project>{de6a7de8-7c35-4bb8-8456-477a61e62b6c}</Project>
+      <Name>SportPoint.Server.Dao.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Dao\SportPoint.Server.Dao.csproj">
+      <Project>{b4671d60-d0d6-448b-93c8-6d054ba93b5b}</Project>
+      <Name>SportPoint.Server.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Entities\SportPoint.Server.Entities.csproj">
+      <Project>{db26afcf-abbd-450b-a8da-201cf4e84258}</Project>
+      <Name>SportPoint.Server.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
