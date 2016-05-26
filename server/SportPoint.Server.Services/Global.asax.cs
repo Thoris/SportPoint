@@ -21,7 +21,7 @@ namespace SportPoint.Server.Services
 
 
 
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+            //WebApiConfig.Register(GlobalConfiguration.Configuration);
         }
     }
 }

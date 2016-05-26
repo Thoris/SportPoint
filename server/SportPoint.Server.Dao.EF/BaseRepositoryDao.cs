@@ -64,7 +64,6 @@ namespace SportPoint.Server.Dao.EF
 
         #endregion
 
-
         #region IGeneric members
 
         /// <summary>

@@ -24,5 +24,6 @@ namespace SportPoint.Server.Dao.EF
         }
 
         #endregion
+
     }
 }

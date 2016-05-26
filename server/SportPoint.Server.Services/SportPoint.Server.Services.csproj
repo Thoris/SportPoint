@@ -103,7 +103,7 @@
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\GenericApiController.cs" />
-    <Compile Include="Controllers\JogadorApiController.cs" />
+    <Compile Include="Controllers\JogadorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -140,7 +140,7 @@ namespace SportPoint.Server.Business
                 baseModel.DataCriacao = DateTime.Now;
                 baseModel.ModificadoPor = _currentUserName;
                 baseModel.DataModificacao = DateTime.Now;
-                baseModel.IsAtivo = true;
+                baseModel.StatusRegistro = Entities.Enum.RowType.Nennhum;
             }
 
             int result = _dao.Insert(entity);

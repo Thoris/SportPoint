@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{37DCF071-4B39-4ACF-AE21-6D4D24DB3BAA}</ProjectGuid>
+    <ProjectGuid>{27E53026-E47A-40CE-9410-38957931C7F5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SportPoint.Server.Integration</RootNamespace>
-    <AssemblyName>SportPoint.Server.Integration</AssemblyName>
+    <RootNamespace>SportPoint.Server.LogManager</RootNamespace>
+    <AssemblyName>SportPoint.Server.LogManager</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,11 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\..\..\..\Thoris\Projetos\SPOT\gitlab\VS\ReferencedComponents\Log4Net\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,19 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenericIntegration.cs" />
-    <Compile Include="FactoryIntegration.cs" />
-    <Compile Include="IGenericIntegration.cs" />
-    <Compile Include="JogadorIntegration.cs" />
-    <Compile Include="JsonManagement.cs" />
+    <Compile Include="LogTool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SerializationUtil.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SportPoint.Server.Entities\SportPoint.Server.Entities.csproj">
-      <Project>{db26afcf-abbd-450b-a8da-201cf4e84258}</Project>
-      <Name>SportPoint.Server.Entities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepositoryDao.cs" />
+    <Compile Include="FactoryDaoEF.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="JogadorRepositoyDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

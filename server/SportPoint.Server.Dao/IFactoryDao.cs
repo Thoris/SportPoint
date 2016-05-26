@@ -11,6 +11,10 @@ namespace SportPoint.Server.Dao
     /// </summary>
     public interface IFactoryDao
     {
-        
+        /// <summary>
+        /// Método que cria o objeto de acesso à dados do para gerenciamento do jogador.
+        /// </summary>
+        /// <returns>Objeto que possui a instância do jogador.</returns>
+        IJogadorDao CreateJogadorDao();
     }
 }

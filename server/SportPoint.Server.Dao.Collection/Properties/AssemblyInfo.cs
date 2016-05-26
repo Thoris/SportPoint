@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SportPoint.Server.LogManager")]
-[assembly: AssemblyDescription("Biblioteca de funcionalidades para geração de logs.")]
+[assembly: AssemblyTitle("SportPoint.Server.Dao.Collection")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SportPoint.Server.LogManager")]
+[assembly: AssemblyProduct("SportPoint.Server.Dao.Collection")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d8d8a261-8f70-4727-b522-9b5db78d07c8")]
+[assembly: Guid("5d277568-6308-484a-9890-612bafd64f6a")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -42,6 +42,9 @@
     <Compile Include="Base\AuditModel.cs" />
     <Compile Include="Base\IBaseModel.cs" />
     <Compile Include="Base\IdEntityBase.cs" />
+    <Compile Include="Base\NameEntityBase.cs" />
+    <Compile Include="Enum\PosicaoJogadorModalidade.cs" />
+    <Compile Include="Enum\RowType.cs" />
     <Compile Include="Horario.cs" />
     <Compile Include="Jogador.cs" />
     <Compile Include="JogosData.cs" />

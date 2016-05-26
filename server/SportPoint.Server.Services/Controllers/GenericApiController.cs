@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 
 namespace SportPoint.Server.Services.Controllers
 {
@@ -10,7 +11,7 @@ namespace SportPoint.Server.Services.Controllers
     /// </summary>
     /// <typeparam name="T">Entidade a ser gerenciada.</typeparam>
     /// <typeparam name="L">Tipo do campo chave da entidade.</typeparam>
-    public class GenericController<T,L> : AuthorizationController
+    public class GenericApiController<T,L> : AuthorizationController
     {
         #region Variables
 
@@ -39,10 +40,10 @@ namespace SportPoint.Server.Services.Controllers
         #region Constructors/Destructors
 
         /// <summary>
-        /// Inicializa nova instância da classe <see cref="GenericController{T, L}"/> .
+        /// Inicializa nova instância da classe <see cref="GenericApiController{T, L}"/> .
         /// </summary>
         /// <param name="bo">The bo.</param>
-        public GenericController(Business.IGenericBusiness<T, L> bo)
+        public GenericApiController(Business.IGenericBusiness<T, L> bo)
         {
             _bo = bo;
         }
@@ -57,6 +58,7 @@ namespace SportPoint.Server.Services.Controllers
         /// </summary>
         /// <param name="id">Identificador da entidade a ser encontrado.</param>
         /// <returns>Entidade encontrada, ou nulo caso não encontre</returns>
+        [HttpGet]
         public T Find(L id)
         {
             return _bo.Find(id);
@@ -66,6 +68,7 @@ namespace SportPoint.Server.Services.Controllers
         /// </summary>
         /// <param name="entity">Entidade a ser carregada.</param>
         /// <returns>Entidade encontrada, ou nulo caso não encontre.</returns>
+        [HttpGet]
         public T Load(T entity)
         {
             return _bo.Load(entity);
@@ -75,6 +78,7 @@ namespace SportPoint.Server.Services.Controllers
         /// </summary>
         /// <param name="entity">Dados da entidade a ser inserida.</param>
         /// <returns>true se conseguiu inserir a entidade.</returns>
+        [HttpPost]
         public bool Insert(T entity)
         {
             return _bo.Insert(entity);
@@ -84,6 +88,7 @@ namespace SportPoint.Server.Services.Controllers
         /// </summary>
         /// <param name="entity">Entidade a ser excluída.</param>
         /// <returns>true se conseguiu remover a entidade.</returns>
+        [HttpPost]
         public bool Delete(T entity)
         {
             return _bo.Delete(entity);
@@ -94,6 +99,7 @@ namespace SportPoint.Server.Services.Controllers
         /// <param name="oldEntity">Entidade antiga a ser atualizada.</param>
         /// <param name="entity">Dados da entidade que devem ser aplicadas à base de dados.</param>
         /// <returns>true se conseguiu atualizar os registros.</returns>
+        [HttpPost]
         public bool Update(T oldEntity, T entity)
         {
             return _bo.Update(oldEntity, entity);
@@ -103,6 +109,7 @@ namespace SportPoint.Server.Services.Controllers
         /// </summary>
         /// <param name="where">String que possui a condição a ser pesquisada.</param>
         /// <returns>Lista de entidades encontradas.</returns>
+        [HttpGet]
         public ICollection<T> GetList(string where)
         {
             throw new NotImplementedException();
@@ -111,6 +118,7 @@ namespace SportPoint.Server.Services.Controllers
         /// Método que carrega todos as entidades armazenadas na base de dados.
         /// </summary>
         /// <returns>Lista de entidades encontradas.</returns>
+        [HttpGet]
         public ICollection<T> GetAll()
         {
             return _bo.GetAll();
@@ -119,6 +127,7 @@ namespace SportPoint.Server.Services.Controllers
         /// Método que retorna a quantidade de registros existentes na base de dados referênte à entidade.
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public int Count()
         {
             return _bo.Count ();

@@ -30,9 +30,9 @@ namespace SportPoint.Server.Entities.Base
         /// </summary>
         public DateTime DataModificacao { get; set; }
         /// <summary>
-        /// Propriedade que configura/retorna um flag se o registro está ativo.
+        /// Propriedade que configura/retorna o status do registro.
         /// </summary>
-        public bool IsAtivo { get; set; }
+        public Enum.RowType StatusRegistro { get; set; }
 
         #endregion
     }
