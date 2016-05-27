@@ -14,9 +14,11 @@ namespace SportPoint.Server.Integration
         #region Constructors/Destructors
 
         /// <summary>
-        /// Inicializa nova instância da classe <see cref="JogadorIntegration"/>.
+        /// Inicializa nova instância da classe <see cref="JogadorIntegration" />.
         /// </summary>
-        public JogadorIntegration()
+        /// <param name="url">Url para chamada dos métodos de integração.</param>
+        public JogadorIntegration(string url)
+            : base (url)
         {
 
         }

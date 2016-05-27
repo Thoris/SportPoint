@@ -39,8 +39,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseCollectionDao.cs" />
+    <Compile Include="CollectionManager.cs" />
+    <Compile Include="FactoryCollection.cs" />
     <Compile Include="IBaseCollection.cs" />
+    <Compile Include="JogadorDaoCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SportPoint.Server.Dao\SportPoint.Server.Dao.csproj">
+      <Project>{b4671d60-d0d6-448b-93c8-6d054ba93b5b}</Project>
+      <Name>SportPoint.Server.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Entities\SportPoint.Server.Entities.csproj">
+      <Project>{db26afcf-abbd-450b-a8da-201cf4e84258}</Project>
+      <Name>SportPoint.Server.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

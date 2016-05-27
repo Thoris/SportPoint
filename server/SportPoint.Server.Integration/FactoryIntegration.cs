@@ -11,6 +11,7 @@ namespace SportPoint.Server.Integration
     /// </summary>
     public class FactoryIntegration
     {
+
         #region Constructors/Destructors
 
         /// <summary>
@@ -26,12 +27,21 @@ namespace SportPoint.Server.Integration
         #region Methods
 
         /// <summary>
+        /// Método que carrega a url para realização das chamadas de integração.
+        /// </summary>
+        /// <returns>Url configurada.</returns>
+        private static string GetUrl()
+        {
+            return "http://localhost:1230/";
+        }
+
+        /// <summary>
         /// Método que cria um objeto de integração para as funcionalidades de gerenciamento do jogador.
         /// </summary>
         /// <returns>Objeto que integração de gerenciamento do jogador.</returns>
         public static JogadorIntegration CreateJogadorIntegration()
         {
-            return new JogadorIntegration();
+            return new JogadorIntegration(GetUrl());
         }
 
         #endregion

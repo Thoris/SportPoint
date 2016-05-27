@@ -10,14 +10,16 @@ namespace SportPoint.Server.Integration
     /// <summary>
     /// Classe que trabalha com funcionalidades genéricas para gerenciamento das entidades de integração.
     /// </summary>
-    public class GenericIntegration<T, L> : JsonManagement, IGenericIntegration<T, L> where T : class
+    public class GenericIntegration<T, L> : JsonManagement<T, L>, IGenericIntegration<T, L> where T : class
     {
         #region Constructors/Destructors
 
         /// <summary>
-        /// Inicializa nova instância da classe <see cref="GenericIntegration"/>.
+        /// Inicializa nova instância da classe <see cref="GenericIntegration" />.
         /// </summary>
-        public GenericIntegration()
+        /// <param name="url">Url de chamadas para a integração.</param>
+        public GenericIntegration(string url)
+            : base (url)
         {
 
         }
@@ -38,7 +40,11 @@ namespace SportPoint.Server.Integration
         /// <returns>Item encontrado, ou null caso não encontre.</returns>
         public T Find(L id)
         {
-            return null;
+            string command = "api/Find/";
+
+            T result = base.HttpGet(command, id);
+
+            return result;
         }
         /// <summary>
         /// Método que carrega um registro a partir de dados básicos da entidade.
@@ -47,7 +53,11 @@ namespace SportPoint.Server.Integration
         /// <returns>Item encontrado, ou null caso não encontre.</returns>
         public T Load(T entity)
         {
-            return null;
+            string command = "api/Load/";
+
+            T result = base.HttpGet(command, entity);
+
+            return result;
         }
         /// <summary>
         /// Método que insere um registro na base de dados.
@@ -56,7 +66,11 @@ namespace SportPoint.Server.Integration
         /// <returns>Quantidade de registros inseridos.</returns>
         public int Insert(T entity)
         {
-            return 0;
+            string command = "api/Insert/";
+
+            int result = base.HttpPost(command, entity);
+
+            return result;
         }
         /// <summary>
         /// Método que exclui um registro da base de dados.
@@ -65,7 +79,11 @@ namespace SportPoint.Server.Integration
         /// <returns>Quantidade de registros a serem excluídos.</returns>
         public int Delete(T entity)
         {
-            return 0;
+            string command = "api/Delete/";
+
+            int result = base.HttpPost(command, entity);
+
+            return result;
         }
         /// <summary>
         /// Método que atualiza um registro na base de dados.
@@ -75,7 +93,11 @@ namespace SportPoint.Server.Integration
         /// <returns>Quantidade de registros atualizados.</returns>
         public int Update(T oldEntity, T entity)
         {
-            return 0;
+            string command = "api/Update/";
+
+            int result = base.HttpPost(command, oldEntity, entity);
+
+            return result;
         }
 
         /// <summary>
@@ -85,6 +107,11 @@ namespace SportPoint.Server.Integration
         /// <returns>Lista de entidades encontradas.</returns>
         public ICollection<T> GetList(Expression<Func<T, bool>> where)
         {
+            string command = "api/GetList/";
+
+            //ICollection<T> list = base.HttpGet(command, )
+
+
             return null;
         }
         /// <summary>
@@ -93,15 +120,23 @@ namespace SportPoint.Server.Integration
         /// <returns>Lista de registros encontrados.</returns>
         public ICollection<T> GetAll()
         {
+            string command = "api/GetAll/";
+
+            ICollection<T> list = base.HttpGet(command, 0);
+
             return null;
         }
         /// <summary>
         /// Método que retorna a quantidade de registros da entidade.
         /// </summary>
         /// <returns>Quantidade de registros encontrados.</returns>
-        public int Count()
+        public long Count()
         {
-            return 0;
+            string command = "api/Count/";
+
+            long result = base.HttpGet(command);
+
+            return result;
         }
 
 
