@@ -61,7 +61,7 @@ namespace SportPoint.Server.Dao.Collection
             throw new NotImplementedException();
         }
 
-        public int Count()
+        public long Count()
         {
             throw new NotImplementedException();
         }

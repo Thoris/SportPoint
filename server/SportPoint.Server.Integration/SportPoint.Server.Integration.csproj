@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
@@ -43,15 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenericIntegration.cs" />
-    <Compile Include="FactoryIntegration.cs" />
-    <Compile Include="IGenericIntegration.cs" />
-    <Compile Include="JogadorIntegration.cs" />
+    <Compile Include="GenericIntegrationDao.cs" />
+    <Compile Include="FactoryIntegrationDao.cs" />
+    <Compile Include="IGenericIntegrationDao.cs" />
+    <Compile Include="JogadorIntegrationDao.cs" />
     <Compile Include="JsonManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializationUtil.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SportPoint.Server.Dao\SportPoint.Server.Dao.csproj">
+      <Project>{b4671d60-d0d6-448b-93c8-6d054ba93b5b}</Project>
+      <Name>SportPoint.Server.Dao</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SportPoint.Server.Entities\SportPoint.Server.Entities.csproj">
       <Project>{db26afcf-abbd-450b-a8da-201cf4e84258}</Project>
       <Name>SportPoint.Server.Entities</Name>

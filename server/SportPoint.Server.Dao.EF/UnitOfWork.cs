@@ -17,7 +17,6 @@ namespace SportPoint.Server.Dao.EF
 
         #endregion
 
-
         #region Constructors/Destructors
 
         /// <summary>

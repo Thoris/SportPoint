@@ -10,18 +10,28 @@ namespace SportPoint.Server.Integration
     /// <summary>
     /// Classe que trabalha com funcionalidades genéricas para gerenciamento das entidades de integração.
     /// </summary>
-    public class GenericIntegration<T, L> : JsonManagement<T, L>, IGenericIntegration<T, L> where T : class
+    public class GenericIntegrationDao<T, L> : Base.JsonManagement<T, L>, IGenericIntegrationDao<T, L> where T : class
     {
+        #region Variables
+
+        /// <summary>
+        /// Variável que armazena o nome do módulo a ser enviado a requisição.
+        /// </summary>
+        private string _moduleName;
+
+        #endregion
+
         #region Constructors/Destructors
 
         /// <summary>
         /// Inicializa nova instância da classe <see cref="GenericIntegration" />.
         /// </summary>
+        /// <param name="moduleName">Nome do módulo a ser enviada a requisição via rest.</param>
         /// <param name="url">Url de chamadas para a integração.</param>
-        public GenericIntegration(string url)
+        public GenericIntegrationDao(string url, string moduleName)
             : base (url)
         {
-
+            _moduleName = moduleName;
         }
 
         #endregion
@@ -40,7 +50,7 @@ namespace SportPoint.Server.Integration
         /// <returns>Item encontrado, ou null caso não encontre.</returns>
         public T Find(L id)
         {
-            string command = "api/Find/";
+            string command = "api/" + _moduleName+  "/Find/" + id.ToString();
 
             T result = base.HttpGet(command, id);
 
@@ -53,7 +63,7 @@ namespace SportPoint.Server.Integration
         /// <returns>Item encontrado, ou null caso não encontre.</returns>
         public T Load(T entity)
         {
-            string command = "api/Load/";
+            string command = "api/" + _moduleName + "/Load/";
 
             T result = base.HttpGet(command, entity);
 
@@ -66,9 +76,14 @@ namespace SportPoint.Server.Integration
         /// <returns>Quantidade de registros inseridos.</returns>
         public int Insert(T entity)
         {
-            string command = "api/Insert/";
+            string command = "api/" + _moduleName + "/Insert/";
 
             int result = base.HttpPost(command, entity);
+
+            //if (result == 1)
+            //    return true;
+            //else
+            //    return false;
 
             return result;
         }
@@ -79,9 +94,14 @@ namespace SportPoint.Server.Integration
         /// <returns>Quantidade de registros a serem excluídos.</returns>
         public int Delete(T entity)
         {
-            string command = "api/Delete/";
+            string command = "api/" + _moduleName + "/Delete/";
 
             int result = base.HttpPost(command, entity);
+
+            //if (result >= 1)
+            //    return true;
+            //else
+            //    return false;
 
             return result;
         }
@@ -93,13 +113,17 @@ namespace SportPoint.Server.Integration
         /// <returns>Quantidade de registros atualizados.</returns>
         public int Update(T oldEntity, T entity)
         {
-            string command = "api/Update/";
+            string command = "api/" + _moduleName + "/Update/";
 
             int result = base.HttpPost(command, oldEntity, entity);
 
+            //if (result >= 1)
+            //    return true;
+            //else
+            //    return false;
+
             return result;
         }
-
         /// <summary>
         /// Método que retorna a lista de registros de entidades a partir de uma condição.
         /// </summary>
@@ -107,7 +131,7 @@ namespace SportPoint.Server.Integration
         /// <returns>Lista de entidades encontradas.</returns>
         public ICollection<T> GetList(Expression<Func<T, bool>> where)
         {
-            string command = "api/GetList/";
+            //string command = "api/" + _moduleName+  "/GetList/";
 
             //ICollection<T> list = base.HttpGet(command, )
 
@@ -120,11 +144,11 @@ namespace SportPoint.Server.Integration
         /// <returns>Lista de registros encontrados.</returns>
         public ICollection<T> GetAll()
         {
-            string command = "api/GetAll/";
+            string command = "api/" + _moduleName + "/GetAll/";
 
             ICollection<T> list = base.HttpGet(command, 0);
 
-            return null;
+            return list;
         }
         /// <summary>
         /// Método que retorna a quantidade de registros da entidade.
@@ -132,13 +156,12 @@ namespace SportPoint.Server.Integration
         /// <returns>Quantidade de registros encontrados.</returns>
         public long Count()
         {
-            string command = "api/Count/";
+            string command = "api/" + _moduleName + "/Count/";
 
             long result = base.HttpGet(command);
 
             return result;
         }
-
 
         #endregion
     }

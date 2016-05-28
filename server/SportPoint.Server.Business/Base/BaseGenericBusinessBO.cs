@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportPoint.Server.Business
+namespace SportPoint.Server.Business.Base
 {
     /// <summary>
     /// Classe Business Object genérica que possui métodos utilizados para gerenciamento das entidades.
@@ -64,13 +64,6 @@ namespace SportPoint.Server.Business
         {
             ((IDisposable)_dao).Dispose();
         }
-
-        #endregion
-
-        #region Methods
-
-     
-
 
         #endregion
 
@@ -231,9 +224,9 @@ namespace SportPoint.Server.Business
         /// Método que retorna a quantidade de retistros na entidade.
         /// </summary>
         /// <returns>Quantidade de registros.</returns>
-        public int Count()
+        public long Count()
         {
-            int result = _dao.Count();
+            long result = _dao.Count();
 
             return result;
         }

@@ -60,7 +60,7 @@ namespace SportPoint.Server.Dao
         /// Método que retorna a quantidade de registros da entidade.
         /// </summary>
         /// <returns>Quantidade de registros encontrados.</returns>
-        int Count();
+        long Count();
 
     }
 }

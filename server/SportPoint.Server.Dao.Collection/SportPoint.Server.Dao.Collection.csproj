@@ -43,8 +43,10 @@
     <Compile Include="CollectionManager.cs" />
     <Compile Include="FactoryCollection.cs" />
     <Compile Include="IBaseCollection.cs" />
+    <Compile Include="IUnitOfWorkCollection.cs" />
     <Compile Include="JogadorDaoCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWorkCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SportPoint.Server.Dao\SportPoint.Server.Dao.csproj">

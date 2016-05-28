@@ -16,23 +16,20 @@ namespace SportPoint.Server.Services.Controllers
         #region Variables
 
         /// <summary>
-        /// Variável que possui a regra de negócio para acesso às funcionalidades de gerenciamento da entidade.
+        /// Variável que possui o objeto de gerenciamento da entidade.
         /// </summary>
-        private Business.IGenericBusiness<T, L> _bo;
+        private Dao.IGenericDao<T, L> _dao;
 
         #endregion
 
         #region Properties
 
         /// <summary>
-        /// Propriedade que retorna o objeto de acesso à regra de negócio para gerencimento da entidade.
+        /// Propriedade que retorna o objeto de acesso à dados para gerencimento da entidade.
         /// </summary>
-        /// <value>
-        /// Objeto que realiza o tratamento das regras de negócio da entitade declarada.
-        /// </value>
-        protected Business.IGenericBusiness<T, L> BO
+        protected Dao.IGenericDao<T, L> BaseDao
         {
-            get { return _bo; }
+            get { return _dao; }
         }
 
         #endregion
@@ -42,10 +39,10 @@ namespace SportPoint.Server.Services.Controllers
         /// <summary>
         /// Inicializa nova instância da classe <see cref="GenericApiController{T, L}"/> .
         /// </summary>
-        /// <param name="bo">The bo.</param>
-        public GenericApiController(Business.IGenericBusiness<T, L> bo)
+        /// <param name="dao">Objeto de conexão de dados.</param>
+        public GenericApiController(Dao.IGenericDao<T, L> dao)
         {
-            _bo = bo;
+            _dao = dao;
         }
 
         #endregion
@@ -61,7 +58,7 @@ namespace SportPoint.Server.Services.Controllers
         [HttpGet]
         public T Find(L id)
         {
-            return _bo.Find(id);
+            return _dao.Find(id);
         }
         /// <summary>
         /// Método que busca e carrega os atributos da entidade.
@@ -71,38 +68,38 @@ namespace SportPoint.Server.Services.Controllers
         [HttpGet]
         public T Load(T entity)
         {
-            return _bo.Load(entity);
+            return _dao.Load(entity);
         }
         /// <summary>
         /// Método que insere uma entidade na base de dados.
         /// </summary>
         /// <param name="entity">Dados da entidade a ser inserida.</param>
-        /// <returns>true se conseguiu inserir a entidade.</returns>
+        /// <returns>Quantidade de registros inseridos.</returns>
         [HttpPost]
-        public bool Insert(T entity)
+        public int Insert(T entity)
         {
-            return _bo.Insert(entity);
+            return _dao.Insert(entity);
         }
         /// <summary>
         /// Método que apaga uma entidade da base de dados.
         /// </summary>
         /// <param name="entity">Entidade a ser excluída.</param>
-        /// <returns>true se conseguiu remover a entidade.</returns>
+        /// <returns>Quantidade de registros excluídos.</returns>
         [HttpPost]
-        public bool Delete(T entity)
+        public int Delete(T entity)
         {
-            return _bo.Delete(entity);
+            return _dao.Delete(entity);
         }
         /// <summary>
         /// Método que atualiza os dados da entidade.
         /// </summary>
         /// <param name="oldEntity">Entidade antiga a ser atualizada.</param>
         /// <param name="entity">Dados da entidade que devem ser aplicadas à base de dados.</param>
-        /// <returns>true se conseguiu atualizar os registros.</returns>
+        /// <returns>Quantidade de registros atualizados.</returns>
         [HttpPost]
-        public bool Update(T oldEntity, T entity)
+        public int Update(T oldEntity, T entity)
         {
-            return _bo.Update(oldEntity, entity);
+            return _dao.Update(oldEntity, entity);
         }
         /// <summary>
         /// Método que carrega uma lista de entidades baseado na condição especificada.
@@ -121,16 +118,16 @@ namespace SportPoint.Server.Services.Controllers
         [HttpGet]
         public ICollection<T> GetAll()
         {
-            return _bo.GetAll();
+            return _dao.GetAll();
         }
         /// <summary>
         /// Método que retorna a quantidade de registros existentes na base de dados referênte à entidade.
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public int Count()
+        public long Count()
         {
-            return _bo.Count ();
+            return _dao.Count ();
         }
 
         #endregion

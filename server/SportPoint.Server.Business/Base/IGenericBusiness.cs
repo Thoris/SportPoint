@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportPoint.Server.Business
+namespace SportPoint.Server.Business.Base
 {
     /// <summary>
     /// Interface genérica que possui informações básicas no gerenciamento das entidades.
@@ -62,7 +62,7 @@ namespace SportPoint.Server.Business
         /// Método que retorna a quantidade de registros de uma entidade.
         /// </summary>
         /// <returns>Quantidade de registros de uma entidade.</returns>
-        int Count();
+        long Count();
 
     }
 }

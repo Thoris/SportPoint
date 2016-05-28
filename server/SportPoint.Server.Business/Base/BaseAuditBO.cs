@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportPoint.Server.Business
+namespace SportPoint.Server.Business.Base
 {
     /// <summary>
     /// Classe base que contém o gerenciamento de dados de auditoria para identificar performance e logs das execuções.

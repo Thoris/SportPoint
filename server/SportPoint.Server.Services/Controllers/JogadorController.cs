@@ -12,6 +12,17 @@ namespace SportPoint.Server.Services.Controllers.Manager
     /// </summary>
     public class JogadorController : GenericApiController<Entities.Jogador, long>
     {
+        #region Properties
+
+        /// <summary>
+        /// Propriedade que retorna o objeto que possui regras de negócio do gerenciamento da entidade.
+        /// </summary>
+        private Dao.IJogadorDao Dao
+        {
+            get { return (Dao.IJogadorDao)base.BaseDao; }
+        }
+
+        #endregion
 
         #region Constructors/Destructors
 

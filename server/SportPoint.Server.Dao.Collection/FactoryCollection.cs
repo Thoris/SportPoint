@@ -13,9 +13,15 @@ namespace SportPoint.Server.Dao.Collection
     {
         #region IFactoryDao members
 
+        /// <summary>
+        /// Método que cria o objeto de acesso à dados do para gerenciamento do jogador.
+        /// </summary>
+        /// <returns>
+        /// Objeto que possui a instância do jogador.
+        /// </returns>
         public IJogadorDao CreateJogadorDao()
         {
-            throw new NotImplementedException();
+            return new Collection.JogadorDaoCollection();
         }
 
         #endregion

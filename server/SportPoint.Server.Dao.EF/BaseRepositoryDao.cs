@@ -235,7 +235,7 @@ namespace SportPoint.Server.Dao.EF
         /// <returns>
         /// Quantidade de registros encontrados.
         /// </returns>
-        public int Count()
+        public long Count()
         {
             int result = _context.Set<T>().Count();
 

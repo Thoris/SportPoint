@@ -9,7 +9,7 @@ namespace SportPoint.Server.Business
     /// <summary>
     /// Classe que realiza o gerenciamento de jogadores, e que possui as regras de negócio para a manipulação dos dados.
     /// </summary>
-    public class JogadorBO : BaseGenericBusinessBO<Entities.Jogador, long>
+    public class JogadorBO : Base.BaseGenericBusinessBO<Entities.Jogador, long>
     {
         #region Constructors/Destructors
 

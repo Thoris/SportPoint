@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BO\FactoryServicesBO.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
@@ -124,10 +125,6 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SportPoint.Server.Business\SportPoint.Server.Business.csproj">
-      <Project>{072868cf-0b54-436e-a2ad-822ecf4b464e}</Project>
-      <Name>SportPoint.Server.Business</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SportPoint.Server.Dao.EF\SportPoint.Server.Dao.EF.csproj">
       <Project>{de6a7de8-7c35-4bb8-8456-477a61e62b6c}</Project>
       <Name>SportPoint.Server.Dao.EF</Name>
