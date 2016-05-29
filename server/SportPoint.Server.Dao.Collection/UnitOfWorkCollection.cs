@@ -9,7 +9,7 @@ namespace SportPoint.Server.Dao.Collection
     /// <summary>
     /// Classe que possui o gerenciamento dos recursos do tipo UnitOfWork
     /// </summary>
-    public class UnitOfWorkCollection
+    public class UnitOfWorkCollection : IUnitOfWorkCollection
     {
         #region Properties
 

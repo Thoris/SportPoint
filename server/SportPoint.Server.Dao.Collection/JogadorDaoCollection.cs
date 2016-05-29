@@ -9,7 +9,7 @@ namespace SportPoint.Server.Dao.Collection
     /// <summary>
     /// Classe que trabalha com o gerenciamento de dados do jogador.
     /// </summary>
-    public class JogadorDaoCollection : IJogadorDao
+    public class JogadorDaoCollection : BaseCollectionDao<Entities.Jogador, long>, IJogadorDao
     {
         #region Constructors/Destructors
 
@@ -17,6 +17,7 @@ namespace SportPoint.Server.Dao.Collection
         /// Inicializa nova instância da classe <see cref="JogadorDaoCollection"/>.
         /// </summary>
         public JogadorDaoCollection()
+            : base("Id")
         {
 
         }
@@ -24,48 +25,5 @@ namespace SportPoint.Server.Dao.Collection
         #endregion
 
 
-        #region IJogadorDao members
-
-        public Entities.Jogador Find(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Entities.Jogador Load(Entities.Jogador entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Insert(Entities.Jogador entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Delete(Entities.Jogador entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Update(Entities.Jogador oldEntity, Entities.Jogador entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<Entities.Jogador> GetList(System.Linq.Expressions.Expression<Func<Entities.Jogador, bool>> where)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<Entities.Jogador> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public long Count()
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
     }
 }

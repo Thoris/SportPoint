@@ -10,7 +10,7 @@ namespace SportPoint.Server.Integration
     /// <summary>
     /// Classe que trabalha com funcionalidades genéricas para gerenciamento das entidades de integração.
     /// </summary>
-    public class GenericIntegrationDao<T, L> : Base.JsonManagement<T, L>, IGenericIntegrationDao<T, L> where T : class
+    public class GenericIntegration<T, L> : Base.JsonManagement<T, L>, IGenericIntegration<T, L> where T : class
     {
         #region Variables
 
@@ -28,16 +28,11 @@ namespace SportPoint.Server.Integration
         /// </summary>
         /// <param name="moduleName">Nome do módulo a ser enviada a requisição via rest.</param>
         /// <param name="url">Url de chamadas para a integração.</param>
-        public GenericIntegrationDao(string url, string moduleName)
+        public GenericIntegration(string url, string moduleName)
             : base (url)
         {
             _moduleName = moduleName;
         }
-
-        #endregion
-
-        #region Methods
-
 
         #endregion
 
@@ -63,7 +58,7 @@ namespace SportPoint.Server.Integration
         /// <returns>Item encontrado, ou null caso não encontre.</returns>
         public T Load(T entity)
         {
-            string command = "api/" + _moduleName + "/Load/";
+            string command = "api/" + _moduleName + "/Load/0";
 
             T result = base.HttpGet(command, entity);
 
@@ -73,12 +68,12 @@ namespace SportPoint.Server.Integration
         /// Método que insere um registro na base de dados.
         /// </summary>
         /// <param name="entity">Entidade com os dados a serem inseridos.</param>
-        /// <returns>Quantidade de registros inseridos.</returns>
-        public int Insert(T entity)
+        /// <returns>True se conseguiu inserir o registro.</returns>
+        public bool Insert(T entity)
         {
-            string command = "api/" + _moduleName + "/Insert/";
+            string command = "api/" + _moduleName + "/Insert/0";
 
-            int result = base.HttpPost(command, entity);
+            bool result = base.HttpPost(command, entity);
 
             //if (result == 1)
             //    return true;
@@ -91,12 +86,12 @@ namespace SportPoint.Server.Integration
         /// Método que exclui um registro da base de dados.
         /// </summary>
         /// <param name="entity">Entidade a ser pesquisada para ser excluída.</param>
-        /// <returns>Quantidade de registros a serem excluídos.</returns>
-        public int Delete(T entity)
+        /// <returns>True se conseguiu excluir o registro.</returns>
+        public bool Delete(T entity)
         {
-            string command = "api/" + _moduleName + "/Delete/";
+            string command = "api/" + _moduleName + "/Delete/0";
 
-            int result = base.HttpPost(command, entity);
+            bool result = base.HttpPost(command, entity);
 
             //if (result >= 1)
             //    return true;
@@ -110,12 +105,12 @@ namespace SportPoint.Server.Integration
         /// </summary>
         /// <param name="oldEntity">Registro atual que deve ser pesquisado na base de dados.</param>
         /// <param name="entity">Dados do registro a ser atualizado na base de dados.</param>
-        /// <returns>Quantidade de registros atualizados.</returns>
-        public int Update(T oldEntity, T entity)
+        /// <returns>True se conseguiu atualizar o registro.</returns>
+        public bool Update(T oldEntity, T entity)
         {
-            string command = "api/" + _moduleName + "/Update/";
+            string command = "api/" + _moduleName + "/Update/0";
 
-            int result = base.HttpPost(command, oldEntity, entity);
+            bool result = base.HttpPost(command, oldEntity, entity);
 
             //if (result >= 1)
             //    return true;
@@ -134,7 +129,7 @@ namespace SportPoint.Server.Integration
             //string command = "api/" + _moduleName+  "/GetList/";
 
             //ICollection<T> list = base.HttpGet(command, )
-
+            
 
             return null;
         }
@@ -144,7 +139,7 @@ namespace SportPoint.Server.Integration
         /// <returns>Lista de registros encontrados.</returns>
         public ICollection<T> GetAll()
         {
-            string command = "api/" + _moduleName + "/GetAll/";
+            string command = "api/" + _moduleName + "/GetAll/0";
 
             ICollection<T> list = base.HttpGet(command, 0);
 
@@ -156,7 +151,7 @@ namespace SportPoint.Server.Integration
         /// <returns>Quantidade de registros encontrados.</returns>
         public long Count()
         {
-            string command = "api/" + _moduleName + "/Count/";
+            string command = "api/" + _moduleName + "/Count/0";
 
             long result = base.HttpGet(command);
 

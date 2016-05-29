@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
+//using System.Net.Http;
+//using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace SportPoint.Server.Tests.Console
 {
@@ -12,6 +15,34 @@ namespace SportPoint.Server.Tests.Console
     {
         static void Main(string[] args)
         {
+
+            //Business.JogadorBO jogadorBo = Business.FactoryBO.CreateJogadorBO();
+            //jogadorBo.Insert(new Entities.Jogador() { Login = "TEste1", Nome = "Teste1" });
+            //jogadorBo.Insert(new Entities.Jogador() { Login = "TEste2", Nome = "Teste2" });
+            //Entities.Jogador entida = jogadorBo.Find(1);
+
+            //var httpClient = new System.Net.Http.HttpClient();
+            //var response = httpClient.PostAsJsonAsync(posturi, model).Result;
+            //bool returnValue = response.Content.ReadAsAsync<bool>().Result;
+
+            //Entities.Jogador ent = new Entities.Jogador();
+            //ent.Login = "Teste";
+            //ent.Nome = "testesassa";
+
+
+            //var client = new System.Net.Http.HttpClient();
+            //var response = client.PostAsync("http://localhost:1230/api/jogador/insert", new StringContent(
+            //    new JavaScriptSerializer().Serialize(ent), Encoding.UTF8, "application/json")
+            //    ).Result;
+
+
+
+
+            //JsonSerializer
+
+
+
+
             //HttpClient client = new HttpClient();
             //client.BaseAddress = new Uri("http://localhost:1230/");
             //// Add an Accept header for JSON format.  
@@ -29,9 +60,25 @@ namespace SportPoint.Server.Tests.Console
             //}
             //System.Console.ReadLine(); 
 
-            Business.JogadorBO jogadorBo =  Business.FactoryBO.CreateJogadorBO();
-            jogadorBo.Find(10);
+            //Business.JogadorBO jogadorBo =  Business.FactoryBO.CreateJogadorBO();
+            //jogadorBo.Insert(new Entities.Jogador() { Login = "teste1", Nome = "Teste1" });
+            //jogadorBo.Insert(new Entities.Jogador() { Login = "teste2", Nome = "Teste2" });
 
+            //jogadorBo.Find(2);
+
+            Integration.JogadorIntegration jogadorInt = Integration.FactoryIntegration.CreateJogador();
+            //jogadorInt.Find(1);
+
+            jogadorInt.Insert(new Entities.Jogador() { Login = "teste1", Nome = "Teste1" });
+            jogadorInt.Insert(new Entities.Jogador() { Login = "teste2", Nome = "Teste2" });
+
+
+            long total = jogadorInt.Count();
+            jogadorInt.Delete(new Entities.Jogador() { Id = 1 });
+            ICollection<Entities.Jogador> list =  jogadorInt.GetAll();
+            
+
+            Entities.Jogador res = jogadorInt.Find(2);
         }
     }
 }

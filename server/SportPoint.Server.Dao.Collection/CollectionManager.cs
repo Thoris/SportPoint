@@ -70,6 +70,8 @@ namespace SportPoint.Server.Dao.Collection
         /// <returns>true se ambos valores forem iguais, senão, false.</returns>
         protected bool CompareKey(L item1, L item2)
         {
+            return object.Equals(item1, item2);
+
             return ReferenceEquals(item1, item2);
         }
         /// <summary>

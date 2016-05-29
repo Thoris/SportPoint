@@ -73,6 +73,13 @@ namespace SportPoint.Server.Dao.Collection
         {
             base.Table.Add(entity);
 
+            if (typeof(T).IsSubclassOf(typeof(Entities.Base.IdEntityBase)) ||
+               typeof(T) == typeof(Entities.Base.IdEntityBase))
+            {
+                Entities.Base.IdEntityBase baseModel = entity as Entities.Base.IdEntityBase;
+                baseModel.Id = base.Table.Count;
+            }
+
             return 1;
         }
         /// <summary>

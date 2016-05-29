@@ -9,7 +9,7 @@ namespace SportPoint.Server.Integration
     /// <summary>
     /// Classe que possui a fábrica de objetos de integração.
     /// </summary>
-    public class FactoryIntegrationDao : Dao.IFactoryDao
+    public class FactoryIntegration 
     {
 
         #region Variables
@@ -17,24 +17,24 @@ namespace SportPoint.Server.Integration
         /// <summary>
         /// Variável que armazena a url usada para requisições via REST.
         /// </summary>
-        private string _url;
+        private static string _url;
 
         #endregion
 
         #region Constructors/Destructors
 
         /// <summary>
-        /// Inicializa nova instância da classe <see cref="FactoryIntegrationDao" />.
+        /// Inicializa nova instância da classe <see cref="FactoryIntegration" />.
         /// </summary>
-        public FactoryIntegrationDao()
+        public FactoryIntegration()
         {
 
         }
         /// <summary>
-        /// Inicializa nova instância da classe <see cref="FactoryIntegrationDao" />.
+        /// Inicializa nova instância da classe <see cref="FactoryIntegration" />.
         /// </summary>
         /// <param name="url">Url de conexão.</param>
-        public FactoryIntegrationDao(string url)
+        public FactoryIntegration(string url)
         {
             _url = url;
         }
@@ -47,7 +47,7 @@ namespace SportPoint.Server.Integration
         /// Método que carrega a url para realização das chamadas de integração.
         /// </summary>
         /// <returns>Url configurada.</returns>
-        private string GetUrl()
+        private static string GetUrl()
         {
             //Se não existe url carregada
             if (string.IsNullOrEmpty(_url))
@@ -78,9 +78,9 @@ namespace SportPoint.Server.Integration
         /// <returns>
         /// Objeto que possui regras de negócio do jogador.
         /// </returns>
-        public Dao.IJogadorDao CreateJogadorDao()
+        public static JogadorIntegration CreateJogador()
         {
-            return new JogadorIntegrationDao (GetUrl ());
+            return new JogadorIntegration (GetUrl ());
         }
 
         #endregion

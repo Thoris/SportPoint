@@ -44,6 +44,7 @@
     <Compile Include="Base\BaseGenericBusinessBO.cs" />
     <Compile Include="FactoryBO.cs" />
     <Compile Include="Base\IGenericBusiness.cs" />
+    <Compile Include="Interfaces\IJogadorBO.cs" />
     <Compile Include="JogadorBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,10 +64,6 @@
     <ProjectReference Include="..\SportPoint.Server.Entities\SportPoint.Server.Entities.csproj">
       <Project>{db26afcf-abbd-450b-a8da-201cf4e84258}</Project>
       <Name>SportPoint.Server.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SportPoint.Server.Integration\SportPoint.Server.Integration.csproj">
-      <Project>{37dcf071-4b39-4acf-ae21-6d4d24db3baa}</Project>
-      <Name>SportPoint.Server.Integration</Name>
     </ProjectReference>
     <ProjectReference Include="..\SportPoint.Server.LogManager\SportPoint.Server.LogManager.csproj">
       <Project>{27e53026-e47a-40ce-9410-38957931c7f5}</Project>

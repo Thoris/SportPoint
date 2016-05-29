@@ -23,10 +23,6 @@ namespace SportPoint.Server.Business
             /// </summary>
             EntityFramework = 0,
             /// <summary>
-            /// Integração usando REST
-            /// </summary>
-            Integration,
-            /// <summary>
             /// Lista de dados por coleção.
             /// </summary>
             ListCollection,
@@ -58,7 +54,7 @@ namespace SportPoint.Server.Business
         /// </summary>
         public FactoryBO()
         {
-            _daoType = DaoType.Integration;
+            _daoType = DaoType.EntityFramework;
         }
         /// <summary>
         /// Inicializa nova instância da classe <see cref="FactoryBO" />.
@@ -105,7 +101,7 @@ namespace SportPoint.Server.Business
 
             }//endif tipo de conexão à dados
 
-            return DaoType.Integration;
+            return DaoType.EntityFramework;
         }
         /// <summary>
         /// Método que retorna o objeto de fábrica de objetos para acesso à banco de dados.
@@ -133,11 +129,6 @@ namespace SportPoint.Server.Business
 
                         break;
 
-                    case DaoType.Integration:
-
-                        _factoryDao = new Integration.FactoryIntegrationDao();
-
-                        break;
                 }
 
             }//endif factoryDao == null

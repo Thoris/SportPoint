@@ -11,6 +11,27 @@ namespace SportPoint.Server.Dao.Collection
     /// </summary>
     public class FactoryCollection : Dao.IFactoryDao
     {
+        #region Variables
+
+        /// <summary>
+        /// Variável local que possui os dados do padrão unit of work.
+        /// </summary>
+        private static UnitOfWorkCollection _unitOfWork;
+
+        #endregion
+
+        #region Constructors/Destructors
+
+        /// <summary>
+        /// Inicializa nova instância da classe <see cref="FactoryCollection"/>.
+        /// </summary>
+        public FactoryCollection()
+        {
+            _unitOfWork = new UnitOfWorkCollection();
+        }
+
+        #endregion
+
         #region IFactoryDao members
 
         /// <summary>
@@ -21,7 +42,8 @@ namespace SportPoint.Server.Dao.Collection
         /// </returns>
         public IJogadorDao CreateJogadorDao()
         {
-            return new Collection.JogadorDaoCollection();
+            return _unitOfWork.Jogadores;
+            //return new Collection.JogadorDaoCollection();
         }
 
         #endregion

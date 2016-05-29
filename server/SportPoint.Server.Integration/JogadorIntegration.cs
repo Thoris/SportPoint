@@ -9,7 +9,7 @@ namespace SportPoint.Server.Integration
     /// <summary>
     /// Classe que trabalha com a integração das funcionalidades do jogador.
     /// </summary>
-    public class JogadorIntegrationDao : GenericIntegrationDao<Entities.Jogador, long>, Dao.IJogadorDao
+    public class JogadorIntegration : GenericIntegration<Entities.Jogador, long>, Business.Interfaces.IJogadorBO
     {
         #region Constants
 
@@ -23,10 +23,10 @@ namespace SportPoint.Server.Integration
         #region Constructors/Destructors
 
         /// <summary>
-        /// Inicializa nova instância da classe <see cref="JogadorIntegrationDao" />.
+        /// Inicializa nova instância da classe <see cref="JogadorIntegration" />.
         /// </summary>
         /// <param name="url">Url para chamada dos métodos de integração.</param>
-        public JogadorIntegrationDao(string url)
+        public JogadorIntegration(string url)
             : base (url, ModuleName)
         {
 
