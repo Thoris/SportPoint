@@ -73,8 +73,8 @@ namespace SportPoint.Server.Tests.Console
             jogadorInt.Insert(new Entities.Jogador() { Login = "teste2", Nome = "Teste2" });
 
 
-            long total = jogadorInt.Count();
-            jogadorInt.Delete(new Entities.Jogador() { Id = 1 });
+            //long total = jogadorInt.Count();
+            //jogadorInt.Delete(new Entities.Jogador() { Id = 1 });
             ICollection<Entities.Jogador> list =  jogadorInt.GetAll();
             
 

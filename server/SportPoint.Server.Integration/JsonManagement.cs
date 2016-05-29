@@ -80,6 +80,9 @@ namespace SportPoint.Server.Integration.Base
                 string res = response.Content.ReadAsStringAsync().Result;
 
 
+                ICollection<T> list = response.Content.ReadAsAsync<ICollection<T>>().Result;
+
+                return list;
             }
 
 
