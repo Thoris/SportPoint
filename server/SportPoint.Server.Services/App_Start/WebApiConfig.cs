@@ -25,7 +25,8 @@ namespace SportPoint.Server.Services
 
             config.Routes.MapHttpRoute(
                 name: "WithActionApi",
-                routeTemplate: "api/{controller}/{action}/{id}"
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { id = RouteParameter.Optional }
             );
 
 
