@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportPoint.Server.Entities
+namespace SportPoint.Server.Dao
 {
-    public class JogosData
+    public interface IModalidadeDao : IGenericDao<Entities.Modalidade, long>
     {
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SportPoint.Server.Entities.Ligacoes
 {
-    class TurmasJogadores
+    /// <summary>
+    /// Classe que trabalha com a ligação dos 
+    /// </summary>
+    public class TurmaJogador
     {
     }
 }

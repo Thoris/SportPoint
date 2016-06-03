@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportPoint.Server.Entities.Ligacoes
+namespace SportPoint.Server.Dao
 {
-    class JogadoresPosicoes
+    class IHorarioDao
     {
     }
 }

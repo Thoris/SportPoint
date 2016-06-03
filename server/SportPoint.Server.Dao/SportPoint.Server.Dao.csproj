@@ -41,7 +41,14 @@
   <ItemGroup>
     <Compile Include="IFactoryDao.cs" />
     <Compile Include="IGenericDao.cs" />
+    <Compile Include="IHorarioDao.cs" />
     <Compile Include="IJogadorDao.cs" />
+    <Compile Include="IJogadorPosicaoDao.cs" />
+    <Compile Include="IModalidadeDao.cs" />
+    <Compile Include="INivelTecnicoDao.cs" />
+    <Compile Include="IPosicaoDao.cs" />
+    <Compile Include="ITurmaDao.cs" />
+    <Compile Include="ITurmaJogadorDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

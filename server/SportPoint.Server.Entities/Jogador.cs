@@ -21,6 +21,14 @@ namespace SportPoint.Server.Entities
         /// Data de Nascimento.
         /// </summary>
         public DateTime DataNascimento { get; set; }
+        /// <summary>
+        /// Propriedade que configura/retorna o email do jogador.
+        /// </summary>
+        public string Email {get;set;}
+        /// <summary>
+        /// Propriedade que configura/retorna o telefone do jogador.
+        /// </summary>
+        public string Telefone { get; set; }
 
         #endregion
     }
