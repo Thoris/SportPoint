@@ -10,15 +10,14 @@ namespace SportPoint.Server.Services.Controllers
     /// Classe genérica que possui as implementações de gerenciamento das entidades.
     /// </summary>
     /// <typeparam name="T">Entidade a ser gerenciada.</typeparam>
-    /// <typeparam name="L">Tipo do campo chave da entidade.</typeparam>
-    public class GenericApiController<T,L> : AuthorizationController where T :class 
+    public class GenericApiController<T> : AuthorizationController where T :class 
     {
         #region Variables
 
         /// <summary>
         /// Variável que possui o objeto de gerenciamento da entidade.
         /// </summary>
-        private Business.Base.IGenericBusiness<T, L> _bo;
+        private Business.Base.IGenericBusiness<T> _bo;
 
         #endregion
 
@@ -27,7 +26,7 @@ namespace SportPoint.Server.Services.Controllers
         /// <summary>
         /// Propriedade que retorna o objeto de acesso à dados para gerencimento da entidade.
         /// </summary>
-        protected Business.Base.IGenericBusiness<T, L> BaseBo
+        protected Business.Base.IGenericBusiness<T> BaseBo
         {
             get { return _bo; }
         }
@@ -37,10 +36,10 @@ namespace SportPoint.Server.Services.Controllers
         #region Constructors/Destructors
 
         /// <summary>
-        /// Inicializa nova instância da classe <see cref="GenericApiController{T, L}"/> .
+        /// Inicializa nova instância da classe <see cref="GenericApiController{T}"/> .
         /// </summary>
         /// <param name="dao">Objeto de regras de negócio.</param>
-        public GenericApiController(Business.Base.IGenericBusiness<T, L> bo)
+        public GenericApiController(Business.Base.IGenericBusiness<T> bo)
         {
             _bo = bo;
         }
@@ -49,23 +48,12 @@ namespace SportPoint.Server.Services.Controllers
 
         #region Methods
 
-
-        /// <summary>
-        /// Método que busca um registro na lista de entidades.
-        /// </summary>
-        /// <param name="id">Identificador da entidade a ser encontrado.</param>
-        /// <returns>Entidade encontrada, ou nulo caso não encontre</returns>
-        [HttpGet]
-        public T Find(L id)
-        {
-            return _bo.Find(id);
-        }
         /// <summary>
         /// Método que busca e carrega os atributos da entidade.
         /// </summary>
         /// <param name="entity">Entidade a ser carregada.</param>
         /// <returns>Entidade encontrada, ou nulo caso não encontre.</returns>
-        [HttpGet]
+        [HttpPost]
         public T Load(T entity)
         {
             return _bo.Load(entity);
@@ -74,9 +62,9 @@ namespace SportPoint.Server.Services.Controllers
         /// Método que insere uma entidade na base de dados.
         /// </summary>
         /// <param name="entity">Dados da entidade a ser inserida.</param>
-        /// <returns>True se o registro foi inserido com sucesso.</returns>
+        /// <returns>Identificador do registro inserido, ou a quantidade de registros afetados no caso de identificador diferente de numérico.</returns>
         [HttpPost]
-        public bool Insert(T entity)
+        public long Insert(T entity)
         {
             return _bo.Insert(entity);
         }
@@ -85,7 +73,7 @@ namespace SportPoint.Server.Services.Controllers
         /// </summary>
         /// <param name="entity">Entidade a ser excluída.</param>
         /// <returns>True se o registro foi excluído com sucesso.</returns>
-        [HttpPost]
+        [HttpDelete]
         public bool Delete(T entity)
         {
             return _bo.Delete(entity);
@@ -97,9 +85,9 @@ namespace SportPoint.Server.Services.Controllers
         /// <param name="entity">Dados da entidade que devem ser aplicadas à base de dados.</param>
         /// <returns>True se o registro foi alterado com sucesso.</returns>
         [HttpPost]
-        public bool Update(T oldEntity, T entity)
+        public bool Update(T entity)
         {
-            return _bo.Update(oldEntity, entity);
+            return _bo.Update(entity);
         }
         /// <summary>
         /// Método que carrega uma lista de entidades baseado na condição especificada.

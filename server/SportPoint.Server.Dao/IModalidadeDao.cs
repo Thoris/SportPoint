@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportPoint.Server.Dao
 {
-    public interface IModalidadeDao : IGenericDao<Entities.Modalidade, long>
+    public interface IModalidadeDao : IGenericDao<Entities.Modalidade>
     {
     }
 }

@@ -9,7 +9,7 @@ namespace SportPoint.Server.Dao
     /// <summary>
     /// Interface que possui as funcionalidades básicas de acesso à dados para gerenciamento do jogador.
     /// </summary>
-    public interface IJogadorDao : IGenericDao<Entities.Jogador, long>
+    public interface IJogadorDao : IGenericDao<Entities.Jogador>
     {
     }
 }

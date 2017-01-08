@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,8 @@ namespace SportPoint.Server.Entities
     public class Jogador : Usuario
     {
         #region Properties
-        
+
+
         /// <summary>
         /// Nome do jogador.
         /// </summary>

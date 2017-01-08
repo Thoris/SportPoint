@@ -10,7 +10,7 @@ namespace SportPoint.Server.Services.Controllers.Manager
     /// <summary>
     /// Classe que possui o controlador da entidade jogador.
     /// </summary>
-    public class JogadorController : GenericApiController<Entities.Jogador, long>
+    public class JogadorController : GenericApiController<Entities.Jogador>
     {
         #region Properties
 

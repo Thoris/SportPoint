@@ -66,19 +66,34 @@ namespace SportPoint.Server.Tests.Console
 
             //jogadorBo.Find(2);
 
-            Integration.JogadorIntegration jogadorInt = Integration.FactoryIntegration.CreateJogador();
-            //jogadorInt.Find(1);
-
-            jogadorInt.Insert(new Entities.Jogador() { Login = "teste1", Nome = "Teste1" });
-            jogadorInt.Insert(new Entities.Jogador() { Login = "teste2", Nome = "Teste2" });
 
 
-            //long total = jogadorInt.Count();
-            //jogadorInt.Delete(new Entities.Jogador() { Id = 1 });
-            ICollection<Entities.Jogador> list =  jogadorInt.GetAll();
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //Integration.JogadorIntegration jogadorInt = Integration.FactoryIntegration.CreateJogador();
+            ////jogadorInt.Find(1);
+
+            //jogadorInt.Insert(new Entities.Jogador() { Login = "teste1", Nome = "Teste1" });
+            //jogadorInt.Insert(new Entities.Jogador() { Login = "teste2", Nome = "Teste2" });
+
+
+            ////long total = jogadorInt.Count();
+            ////jogadorInt.Delete(new Entities.Jogador() { Id = 1 });
+            //ICollection<Entities.Jogador> list =  jogadorInt.GetAll();
             
 
-            Entities.Jogador res = jogadorInt.Find(2);
+            //Entities.Jogador res = jogadorInt.Find(2);
         }
     }
 }

@@ -43,7 +43,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IntegrationTests\Base\UrlTest.cs" />
+    <Compile Include="IntegrationTests\GenericBaseTests.cs" />
+    <Compile Include="IntegrationTests\JogadorIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BusinessTests\" />
+    <Folder Include="DaoTests\" />
+    <Folder Include="EntitiesTests\" />
+    <Folder Include="PortalTests\" />
+    <Folder Include="ServiceTests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SportPoint.Server.Business\SportPoint.Server.Business.csproj">
+      <Project>{072868cf-0b54-436e-a2ad-822ecf4b464e}</Project>
+      <Name>SportPoint.Server.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Dao.Collection\SportPoint.Server.Dao.Collection.csproj">
+      <Project>{fad5670f-a766-4ec1-9786-abcdd2535a6f}</Project>
+      <Name>SportPoint.Server.Dao.Collection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Dao.EF\SportPoint.Server.Dao.EF.csproj">
+      <Project>{de6a7de8-7c35-4bb8-8456-477a61e62b6c}</Project>
+      <Name>SportPoint.Server.Dao.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Dao\SportPoint.Server.Dao.csproj">
+      <Project>{b4671d60-d0d6-448b-93c8-6d054ba93b5b}</Project>
+      <Name>SportPoint.Server.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Entities\SportPoint.Server.Entities.csproj">
+      <Project>{db26afcf-abbd-450b-a8da-201cf4e84258}</Project>
+      <Name>SportPoint.Server.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Integration\SportPoint.Server.Integration.csproj">
+      <Project>{37dcf071-4b39-4acf-ae21-6d4d24db3baa}</Project>
+      <Name>SportPoint.Server.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.LogManager\SportPoint.Server.LogManager.csproj">
+      <Project>{27e53026-e47a-40ce-9410-38957931c7f5}</Project>
+      <Name>SportPoint.Server.LogManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Portal\SportPoint.Server.Portal.csproj">
+      <Project>{8799f250-2054-4266-844e-c5d844add4cf}</Project>
+      <Name>SportPoint.Server.Portal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Resources\SportPoint.Server.Resources.csproj">
+      <Project>{370136be-793c-473d-8f73-666a7e2e5d93}</Project>
+      <Name>SportPoint.Server.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Services\SportPoint.Server.Services.csproj">
+      <Project>{8517f720-aaad-468c-aa8b-2cc036c99019}</Project>
+      <Name>SportPoint.Server.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

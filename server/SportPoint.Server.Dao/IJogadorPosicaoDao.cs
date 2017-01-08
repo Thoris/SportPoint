@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportPoint.Server.Dao
 {
-    public interface IJogadorPosicaoDao : IGenericDao<Entities.Ligacoes.JogadorPosicao, long>
+    public interface IJogadorPosicaoDao : IGenericDao<Entities.Ligacoes.JogadorPosicao>
     {
     }
 }

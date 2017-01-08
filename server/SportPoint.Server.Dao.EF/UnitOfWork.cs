@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SportPoint.Server.Dao.EF
 {
-    public class UnitOfWork : DbContext, IUnitOfWork
+    public class UnitOfWork : DbContext, Base.IUnitOfWork
     {
         #region Properties
 

@@ -11,15 +11,8 @@ namespace SportPoint.Server.Business.Base
     /// Interface genérica que possui informações básicas no gerenciamento das entidades.
     /// </summary>
     /// <typeparam name="T">Tipo de entidade a ser manipulada.</typeparam>
-    /// <typeparam name="L">Tipo de entidade chave a ser usada na manipulação dos dados.</typeparam>
-    public interface IGenericBusiness<T, L>
+    public interface IGenericBusiness<T>
     {
-        /// <summary>
-        /// Método que busca um registro específico a partir de um identificador.
-        /// </summary>
-        /// <param name="id">Identificador a ser pesquisado.</param>
-        /// <returns>Registro encontrado, ou null caso não encontre.</returns>
-        T Find(L id);
         /// <summary>
         /// Método que carrega os detalhes de um registro a partir dos dados chave.
         /// </summary>
@@ -30,8 +23,8 @@ namespace SportPoint.Server.Business.Base
         /// Método que insere um registro na entidade.
         /// </summary>
         /// <param name="entity">Dados do registro a ser inserido.</param>
-        /// <returns>true se conseguiu inserir, senão, false.</returns>
-        bool Insert(T entity);
+        /// <returns>Identificador do registro inserido, ou quantidade de registros afetados.</returns>
+        long Insert(T entity);
         /// <summary>
         /// Método que apaga um registro da entidade.
         /// </summary>
@@ -41,12 +34,11 @@ namespace SportPoint.Server.Business.Base
         /// <summary>
         /// Método que atualiza dados do registro na entidade.
         /// </summary>
-        /// <param name="oldEntity">Registro atual da base de dados.</param>
         /// <param name="entity">Registro com os dados a ser atualizado na base de dados.</param>
-        /// <returns>true se conseguiu atualizar os dados do registro, senão, false.</returns>
-        bool Update(T oldEntity, T entity);
-
-
+        /// <returns>
+        /// true se conseguiu atualizar os dados do registro, senão, false.
+        /// </returns>
+        bool Update(T entity);
         /// <summary>
         /// Método que retorna a lista de registro de uma entidade.
         /// </summary>

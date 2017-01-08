@@ -9,7 +9,7 @@ namespace SportPoint.Server.Dao.Collection
     /// <summary>
     /// Classe que trabalha com o gerenciamento de dados do jogador.
     /// </summary>
-    public class JogadorDaoCollection : BaseCollectionDao<Entities.Jogador, long>, IJogadorDao
+    public class JogadorDaoCollection : Base.BaseCollectionDao<Entities.Jogador>, IJogadorDao
     {
         #region Constructors/Destructors
 
@@ -23,7 +23,5 @@ namespace SportPoint.Server.Dao.Collection
         }
 
         #endregion
-
-
     }
 }

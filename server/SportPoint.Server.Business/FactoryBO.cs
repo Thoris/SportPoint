@@ -119,13 +119,13 @@ namespace SportPoint.Server.Business
                 {
                     case DaoType.EntityFramework:
 
-                        _factoryDao = new Dao.EF.FactoryDaoEF();
+                        _factoryDao = new Dao.EF.Base.FactoryDaoEF();
 
                         break;
 
                     case DaoType.ListCollection:
 
-                        _factoryDao = new Dao.Collection.FactoryCollection();
+                        _factoryDao = new Dao.Collection.Base.FactoryCollection();
 
                         break;
 

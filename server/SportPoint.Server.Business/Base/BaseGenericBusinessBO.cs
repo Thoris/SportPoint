@@ -11,14 +11,14 @@ namespace SportPoint.Server.Business.Base
     /// Classe Business Object genérica que possui métodos utilizados para gerenciamento das entidades.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class BaseGenericBusinessBO<T, L> : BaseAuditBO<T, L>, IDisposable, IGenericBusiness<T, L> where T : class
+    public class BaseGenericBusinessBO<T> : BaseAuditBO<T>, IDisposable, IGenericBusiness<T> where T : class
     {
         #region Variables
 
         /// <summary>
         /// Variável que armazena o objeto que acessa a base de dados.
         /// </summary>
-        private Dao.IGenericDao<T, L> _dao;
+        private Dao.IGenericDao<T> _dao;
         /// <summary>
         /// Variável que possui o login do usuário que está manipulando os dados.
         /// </summary>
@@ -44,7 +44,7 @@ namespace SportPoint.Server.Business.Base
         /// </summary>
         /// <param name="currentUserName">Usuário que está fazendo a execução.</param>
         /// <param name="dao">Objeto de acesso à dados</param>
-        public BaseGenericBusinessBO(string currentUserName, Dao.IGenericDao<T, L> dao)
+        public BaseGenericBusinessBO(string currentUserName, Dao.IGenericDao<T> dao)
         {
             if (dao == null)
                 throw new ArgumentException("dao");
@@ -68,21 +68,7 @@ namespace SportPoint.Server.Business.Base
         #endregion
 
         #region IGenericBusiness members
-
-        /// <summary>
-        /// Método que busca um identificador específico na base de dados.
-        /// </summary>
-        /// <param name="id">Identificador a ser pesquisado.</param>
-        /// <returns>Entidade encontrada que possui o identificador específico, caso não encontre, retorna nulo</returns>
-        public T Find(L id)
-        {
-            if (Object.ReferenceEquals(null, id))
-                throw new ArgumentException("id");
-            
-            T result = _dao.Find(id);
-
-            return result;
-        }
+        
         /// <summary>
         /// Método que busca uma entidade na base de dados.
         /// </summary>
@@ -113,8 +99,8 @@ namespace SportPoint.Server.Business.Base
         /// Método que insere um atributo na base de dados
         /// </summary>
         /// <param name="entity">Entidade a ser inserida</param>
-        /// <returns>True se conseguiu inserir mais de 1 item, senão, false</returns>
-        public bool Insert(T entity)
+        /// <returns>Identificador do registo, ou quantidade de registros afetados quando o tipo é diferente de numérico.</returns>
+        public long Insert(T entity)
         {
             if (entity == null)
                 throw new ArgumentException("entity");
@@ -136,7 +122,7 @@ namespace SportPoint.Server.Business.Base
                 baseModel.StatusRegistro = Entities.Enum.RowType.Nennhum;
             }
 
-            int result = _dao.Insert(entity);
+            long result = _dao.Insert(entity);
 
             if (IsSaveLog)
             {
@@ -146,7 +132,8 @@ namespace SportPoint.Server.Business.Base
                     LogTool.Warn(this, GetStringTypeNameID(entity) + ": " + GetMessageTotalTime("Entity insert result: " + result));
             }
 
-            return result >= 1 ? true : false;
+            //return result >= 1 ? true : false;
+            return result;
 
         }
         /// <summary>
@@ -156,26 +143,28 @@ namespace SportPoint.Server.Business.Base
         /// <returns>Se conseguiu excluir mais de 1 item, returna true, senão, false</returns>
         public bool Delete(T entity)
         {
-            if (entity == null)
-                throw new ArgumentException("entity");
+            //if (entity == null)
+            //    throw new ArgumentException("entity");
 
-            if (IsSaveLog)
-            {
-                LogTool.Debug(this, GetStringTypeNameID(entity) + "Deleting entity...");
-                CheckStart();
-            }
+            //if (IsSaveLog)
+            //{
+            //    LogTool.Debug(this, GetStringTypeNameID(entity) + "Deleting entity...");
+            //    CheckStart();
+            //}
 
-            int result = _dao.Delete(entity);
+            //int result = _dao.Delete(entity);
 
-            if (IsSaveLog)
-            {
-                if (result >= 1)
-                    LogTool.Info(this, GetStringTypeNameID(entity) + GetMessageTotalTime("Deleted."));
-                else
-                    LogTool.Warn(this, GetStringTypeNameID(entity) + GetMessageTotalTime("Entity delete result: " + result));
-            }
+            //if (IsSaveLog)
+            //{
+            //    if (result >= 1)
+            //        LogTool.Info(this, GetStringTypeNameID(entity) + GetMessageTotalTime("Deleted."));
+            //    else
+            //        LogTool.Warn(this, GetStringTypeNameID(entity) + GetMessageTotalTime("Entity delete result: " + result));
+            //}
 
-            return result >= 1 ? true : false;
+            //return result >= 1 ? true : false;
+
+            return true;
 
         }
         /// <summary>
@@ -184,10 +173,8 @@ namespace SportPoint.Server.Business.Base
         /// <param name="oldEntity">Entidade a ser atualizada.</param>
         /// <param name="entity">Dados da nova entidade.</param>
         /// <returns>true se conseguiu atualizar pelo menos um registro, senão, false.</returns>
-        public bool Update(T oldEntity, T entity)
+        public bool Update( T entity)
         {
-            if (oldEntity == null)
-                throw new ArgumentException("oldEntity");
             if (entity == null)
                 throw new ArgumentException("entity");
 
@@ -206,7 +193,7 @@ namespace SportPoint.Server.Business.Base
                 baseModel.ModificadoPor = this.CurrentUserName;
                 baseModel.DataModificacao = DateTime.Now;
             }
-            int result = _dao.Update(oldEntity, entity);
+            int result = _dao.Update(entity);
 
             if (IsSaveLog)
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportPoint.Server.Dao
 {
-    public interface IPosicaoDao : IGenericDao<Entities.Posicao, long>
+    public interface IPosicaoDao : IGenericDao<Entities.Posicao>
     {
     }
 }

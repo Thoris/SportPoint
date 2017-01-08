@@ -9,7 +9,7 @@ namespace SportPoint.Server.Integration
     /// <summary>
     /// Classe que trabalha com a integração das funcionalidades do jogador.
     /// </summary>
-    public class JogadorIntegration : GenericIntegration<Entities.Jogador, long>, Business.Interfaces.IJogadorBO
+    public class JogadorIntegration : Base.GenericIntegration<Entities.Jogador>, Business.Interfaces.IJogadorBO
     {
         #region Constants
 

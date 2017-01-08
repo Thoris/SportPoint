@@ -10,8 +10,7 @@ namespace SportPoint.Server.Business.Base
     /// Classe base que contém o gerenciamento de dados de auditoria para identificar performance e logs das execuções.
     /// </summary>
     /// <typeparam name="T">Tipo de entidade a ser gerenciada.</typeparam>
-    /// <typeparam name="L">Identificador da chave da entidade.</typeparam>
-    public class BaseAuditBO<T, L>
+    public class BaseAuditBO<T>
     {        
         #region Properties
 
@@ -78,14 +77,14 @@ namespace SportPoint.Server.Business.Base
         /// </summary>
         /// <param name="entity">Entidade a ser analisada</param>
         /// <returns>Identificador da entidade, ou 0 caso não seja do tipo BaseModel</returns>
-        protected L GetId(T entity)
+        protected long GetId(T entity)
         {
-            L id = default(L);
+            //T id = default(T);
 
             //if (typeof(T).IsSubclassOf(typeof(Entities.Base.IBaseModel)))
             //    id = (entity as Model.BaseModel).ID;
 
-            return id;
+            return 0;
         }
         /// <summary>
         /// Método que retorna string que possui o identificador da entidade.

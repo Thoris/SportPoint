@@ -11,14 +11,9 @@ namespace SportPoint.Server.Dao
     /// Interface de acesso à base de dados que trabalha com métodos genéricos de acesso.
     /// </summary>
     /// <typeparam name="T">Tipo de objeto a ser manipulado.</typeparam>
-    public interface IGenericDao<T, L> where T : class
+    public interface IGenericDao<T> where T : class
     {
-        /// <summary>
-        /// Método que busca uma entrada através do identificador.
-        /// </summary>
-        /// <param name="id">Identificador a ser pesquisado.</param>
-        /// <returns>Item encontrado, ou null caso não encontre.</returns>
-        T Find(L id);
+        
         /// <summary>
         /// Método que carrega um registro a partir de dados básicos da entidade.
         /// </summary>
@@ -29,8 +24,8 @@ namespace SportPoint.Server.Dao
         /// Método que insere um registro na base de dados.
         /// </summary>
         /// <param name="entity">Entidade com os dados a serem inseridos.</param>
-        /// <returns>Quantidade de registros inseridos.</returns>
-        int Insert(T entity);
+        /// <returns>Identificador do registro ou a quantidade de registros inseridos.</returns>
+        long Insert(T entity);
         /// <summary>
         /// Método que exclui um registro da base de dados.
         /// </summary>
@@ -40,10 +35,11 @@ namespace SportPoint.Server.Dao
         /// <summary>
         /// Método que atualiza um registro na base de dados.
         /// </summary>
-        /// <param name="oldEntity">Registro atual que deve ser pesquisado na base de dados.</param>
         /// <param name="entity">Dados do registro a ser atualizado na base de dados.</param>
-        /// <returns>Quantidade de registros atualizados.</returns>
-        int Update(T oldEntity, T entity);
+        /// <returns>
+        /// Quantidade de registros atualizados.
+        /// </returns>
+        int Update(T entity);
 
         /// <summary>
         /// Método que retorna a lista de registros de entidades a partir de uma condição.

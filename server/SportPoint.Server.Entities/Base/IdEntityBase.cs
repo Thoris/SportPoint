@@ -16,7 +16,7 @@ namespace SportPoint.Server.Entities.Base
         /// <summary>
         /// Propriedade que configura/retorna o identificador do registro.
         /// </summary>
-        public long Id { get; set; }
+        public long ID { get; set; }
 
         #endregion
     }

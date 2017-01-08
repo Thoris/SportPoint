@@ -9,7 +9,7 @@ namespace SportPoint.Server.Dao.EF
     /// <summary>
     /// Classe de acesso à dados através do Entity Framework para gerenciamento de jogadores.
     /// </summary>
-    public class JogadorRepositoyDao : BaseRepositoryDao<Entities.Jogador, long>, Dao.IJogadorDao
+    public class JogadorRepositoyDao : Base.BaseRepositoryDao<Entities.Jogador>, Dao.IJogadorDao
     {
         #region Constructors/Destructors
 
@@ -17,7 +17,7 @@ namespace SportPoint.Server.Dao.EF
         /// Inicializa nova instância da classe <see cref="JogadorRepositoyDao"/>.
         /// </summary>
         /// <param name="unitOfWork">Objeto que possui o padrão unit of work.</param>
-        public JogadorRepositoyDao(IUnitOfWork unitOfWork)
+        public JogadorRepositoyDao(Base.IUnitOfWork unitOfWork)
             : base(unitOfWork)
         {
 

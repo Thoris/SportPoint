@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace SportPoint.Server.Entities.Base
     /// <summary>
     /// Classe base da entidade que possui informações básicas do registro.
     /// </summary>
-    public class AuditModel
+    public class AuditModel : BaseEntity
     {
         #region Properties
 
