@@ -82,9 +82,17 @@ namespace SportPoint.Server.Dao.Collection.Base
             if (p1.Count != p2.Count)
                 return false;
 
+
             foreach (KeyValuePair<string, object> entry in p1)
             {
-                if (entry.Value != p2[entry.Key])
+                if (entry.Value.GetType() == typeof(string))
+                {
+                    if (string.Compare ((string)entry.Value, (string)p2[entry.Key]) != 0)
+                    {
+                        return false;
+                    }
+                }
+                else if (entry.Value != p2[entry.Key])
                 {
                     return false;
                 }

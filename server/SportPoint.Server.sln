@@ -91,6 +91,13 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SportPoint.Server.Database.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPoint.Server.Tests.Debug", "SportPoint.Server.Tests.Debug\SportPoint.Server.Tests.Debug.csproj", "{153AAFAE-219A-42E5-BB48-BF70B339F47F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC0B6087-8CEC-4C82-98BB-1FCC7465B4F3}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

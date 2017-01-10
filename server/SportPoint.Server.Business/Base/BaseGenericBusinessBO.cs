@@ -143,28 +143,28 @@ namespace SportPoint.Server.Business.Base
         /// <returns>Se conseguiu excluir mais de 1 item, returna true, senão, false</returns>
         public bool Delete(T entity)
         {
-            //if (entity == null)
-            //    throw new ArgumentException("entity");
+            if (entity == null)
+                throw new ArgumentException("entity");
 
-            //if (IsSaveLog)
-            //{
-            //    LogTool.Debug(this, GetStringTypeNameID(entity) + "Deleting entity...");
-            //    CheckStart();
-            //}
+            if (IsSaveLog)
+            {
+                LogTool.Debug(this, GetStringTypeNameID(entity) + "Deleting entity...");
+                CheckStart();
+            }
 
-            //int result = _dao.Delete(entity);
+            int result = _dao.Delete(entity);
 
-            //if (IsSaveLog)
-            //{
-            //    if (result >= 1)
-            //        LogTool.Info(this, GetStringTypeNameID(entity) + GetMessageTotalTime("Deleted."));
-            //    else
-            //        LogTool.Warn(this, GetStringTypeNameID(entity) + GetMessageTotalTime("Entity delete result: " + result));
-            //}
+            if (IsSaveLog)
+            {
+                if (result >= 1)
+                    LogTool.Info(this, GetStringTypeNameID(entity) + GetMessageTotalTime("Deleted."));
+                else
+                    LogTool.Warn(this, GetStringTypeNameID(entity) + GetMessageTotalTime("Entity delete result: " + result));
+            }
 
-            //return result >= 1 ? true : false;
+            return result >= 1 ? true : false;
 
-            return true;
+            //return true;
 
         }
         /// <summary>

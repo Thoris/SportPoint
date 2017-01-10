@@ -81,23 +81,37 @@ namespace SportPoint.Server.Dao.Collection.Base
         /// <returns>Quantidade de registros a serem excluídos.</returns>
         public int Delete(T entity)
         {
-            //Entities.Base.BaseEntity baseData = entity as Entities.Base.BaseEntity;
-
-            T result = this.Load(entity);
-
-            if (result == null)
+            int total = 0;
+            Entities.Base.BaseEntity baseData = entity as Entities.Base.BaseEntity;
+            for (int c = base.Table.Count - 1; c >= 0; c--)
             {
-                return 0;
-            }
-            else
-            {
-                bool res = base.Table.Remove(entity);
+                Entities.Base.BaseEntity baseCompare = base.Table[c] as Entities.Base.BaseEntity;
 
-                if (res)
-                    return 1;
-                else
-                    return 0;
+                if (base.CompareKeys(baseData, baseCompare))
+                {
+                    base.Table.RemoveAt(c);
+                    total++;
+                }
             }
+
+            return total;
+
+
+            //T result = this.Load(entity);
+
+            //if (result == null)
+            //{
+            //    return 0;
+            //}
+            //else
+            //{
+            //    bool res = base.Table.Remove(entity);
+
+            //    if (res)
+            //        return 1;
+            //    else
+            //        return 0;
+            //}
 
 
             //L entityKey = base.GetKey(entity);

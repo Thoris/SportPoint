@@ -73,7 +73,7 @@ namespace SportPoint.Server.Services.Controllers
         /// </summary>
         /// <param name="entity">Entidade a ser excluída.</param>
         /// <returns>True se o registro foi excluído com sucesso.</returns>
-        [HttpDelete]
+        [HttpPost]
         public bool Delete(T entity)
         {
             return _bo.Delete(entity);

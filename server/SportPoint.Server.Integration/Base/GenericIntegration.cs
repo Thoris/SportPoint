@@ -113,7 +113,7 @@ namespace SportPoint.Server.Integration.Base
 
             //return result;
 
-            return base.HttpDeleteApi<bool>(GetParameters<T>(id), "Delete");
+            return base.HttpPostApi<bool>(new Dictionary<string, string>(), id , "Delete");
         }
         /// <summary>
         /// Método que atualiza um registro na base de dados.
