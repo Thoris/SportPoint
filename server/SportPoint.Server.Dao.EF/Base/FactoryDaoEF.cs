@@ -64,7 +64,13 @@ namespace SportPoint.Server.Dao.EF.Base
         {
             return new JogadorRepositoyDao(CreateUnitOfWork());
         }
-
+        public IModalidadeDao CreateModalidadeDao()
+        {
+            return new ModalidadeRepositoryDao(CreateUnitOfWork());
+        }
         #endregion
+
+
+
     }
 }

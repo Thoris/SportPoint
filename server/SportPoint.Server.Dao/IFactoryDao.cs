@@ -16,5 +16,6 @@ namespace SportPoint.Server.Dao
         /// </summary>
         /// <returns>Objeto que possui a instância do jogador.</returns>
         IJogadorDao CreateJogadorDao();
+        IModalidadeDao CreateModalidadeDao();
     }
 }

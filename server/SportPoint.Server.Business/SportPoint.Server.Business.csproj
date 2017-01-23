@@ -44,7 +44,9 @@
     <Compile Include="Base\BaseGenericBusinessBO.cs" />
     <Compile Include="FactoryBO.cs" />
     <Compile Include="Base\IGenericBusiness.cs" />
+    <Compile Include="Interfaces\IModalidadeBO.cs" />
     <Compile Include="Interfaces\IJogadorBO.cs" />
+    <Compile Include="ModalidadeBO.cs" />
     <Compile Include="JogadorBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

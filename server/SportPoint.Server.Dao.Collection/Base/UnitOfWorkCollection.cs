@@ -18,6 +18,8 @@ namespace SportPoint.Server.Dao.Collection.Base
         /// </summary>
         public JogadorDaoCollection Jogadores { get; set; }
 
+        public ModalidadeDaoCollection Modalidades { get; set; }
+
         #endregion
 
         #region Constructors/Destructors
@@ -28,6 +30,7 @@ namespace SportPoint.Server.Dao.Collection.Base
         public UnitOfWorkCollection()
         {
             Jogadores = new JogadorDaoCollection();
+            Modalidades = new ModalidadeDaoCollection();
         }
 
         #endregion

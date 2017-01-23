@@ -144,6 +144,10 @@ namespace SportPoint.Server.Business
         {
             return new JogadorBO("", GetFactoryDao().CreateJogadorDao());
         }
+        public static ModalidadeBO CreateModalidadeBO()
+        {
+            return new ModalidadeBO("", GetFactoryDao().CreateModalidadeDao());
+        }
 
         #endregion
     }

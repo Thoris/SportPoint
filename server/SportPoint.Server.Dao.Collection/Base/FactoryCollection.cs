@@ -45,7 +45,13 @@ namespace SportPoint.Server.Dao.Collection.Base
             return _unitOfWork.Jogadores;
             //return new Collection.JogadorDaoCollection();
         }
-
+        public IModalidadeDao CreateModalidadeDao()
+        {
+            return _unitOfWork.Modalidades;
+        }
         #endregion
+
+
+
     }
 }

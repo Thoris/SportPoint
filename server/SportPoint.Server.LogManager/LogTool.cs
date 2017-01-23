@@ -94,7 +94,16 @@ namespace SportPoint.Server.LogManager
         {
             GetLogger(sourceObject).Fatal(String.Format(CultureInfo.InvariantCulture, message, args));
         }
+        /// <summary>
+        /// Send error found when the system crashes.
+        /// </summary>
+        /// <param name="sourceObject">The source object.</param>
+        /// <param name="ex">The exception value.</param>
+        public static void Fatal(object sourceObject, Exception ex)
+        {
 
+            GetLogger(sourceObject).Fatal(sourceObject, ex);
+        }
         #endregion
     }
 }

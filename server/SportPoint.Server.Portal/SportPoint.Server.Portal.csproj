@@ -160,11 +160,19 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\AuthorizationController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CultureHelper.cs" />
+    <Compile Include="Helpers\CustomHandleErrorAttribute.cs" />
+    <Compile Include="Helpers\VersionApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Account\LoginVO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
@@ -203,13 +211,31 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Controllers\DadosBasicos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SportPoint.Server.Entities\SportPoint.Server.Entities.csproj">
+      <Project>{db26afcf-abbd-450b-a8da-201cf4e84258}</Project>
+      <Name>SportPoint.Server.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Integration\SportPoint.Server.Integration.csproj">
+      <Project>{37dcf071-4b39-4acf-ae21-6d4d24db3baa}</Project>
+      <Name>SportPoint.Server.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.LogManager\SportPoint.Server.LogManager.csproj">
+      <Project>{27e53026-e47a-40ce-9410-38957931c7f5}</Project>
+      <Name>SportPoint.Server.LogManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SportPoint.Server.Resources\SportPoint.Server.Resources.csproj">
+      <Project>{370136be-793c-473d-8f73-666a7e2e5d93}</Project>
+      <Name>SportPoint.Server.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

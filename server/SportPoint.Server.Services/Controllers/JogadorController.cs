@@ -66,13 +66,13 @@ namespace SportPoint.Server.Services.Controllers.Manager
         //{
         //}
 
-        [HttpPost]
-        public string TT(Entities.Jogador jogador)
-        {
-            Console.WriteLine("OK");
+        //[HttpPost]
+        //public string TT(Entities.Jogador jogador)
+        //{
+        //    Console.WriteLine("OK");
 
-            return "TOTAL";
-        }
+        //    return "TOTAL";
+        //}
 
         #endregion
     }

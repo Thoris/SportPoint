@@ -62,6 +62,7 @@
     <Compile Include="Base\GenericIntegration.cs" />
     <Compile Include="Base\FactoryIntegration.cs" />
     <Compile Include="Base\IGenericIntegration.cs" />
+    <Compile Include="ModalidadeIntegration.cs" />
     <Compile Include="JogadorIntegration.cs" />
     <Compile Include="Base\JsonBase.cs" />
     <Compile Include="Base\JsonManagement.cs" />

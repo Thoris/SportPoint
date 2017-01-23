@@ -129,9 +129,9 @@
       <Project>{8517f720-aaad-468c-aa8b-2cc036c99019}</Project>
       <Name>SportPoint.Server.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SportPoint.Server.Tests\SportPoint.Server.Tests.csproj">
-      <Project>{5ef46a17-e35c-4847-a430-49fa1d8c51fa}</Project>
-      <Name>SportPoint.Server.Tests</Name>
+    <ProjectReference Include="..\SportPoint.Server.TestsVS\SportPoint.Server.TestsVS.csproj">
+      <Project>{60a94b63-41aa-4648-9f77-971f3f38961e}</Project>
+      <Name>SportPoint.Server.TestsVS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

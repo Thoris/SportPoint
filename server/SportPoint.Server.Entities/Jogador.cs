@@ -14,7 +14,6 @@ namespace SportPoint.Server.Entities
     {
         #region Properties
 
-
         /// <summary>
         /// Nome do jogador.
         /// </summary>
