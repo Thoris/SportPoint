@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportPoint.Server.Dao
 {
-    class IHorarioDao
+    public interface IHorarioDao : IGenericDao<Entities.Horario>
     {
     }
 }

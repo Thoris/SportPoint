@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DaoTests\EntityFrameworkTests\EFGenericBaseTests.cs" />
     <Compile Include="IntegrationTests\Base\UrlTest.cs" />
     <Compile Include="IntegrationTests\GenericBaseTests.cs" />
     <Compile Include="IntegrationTests\JogadorIntegrationTests.cs" />
@@ -60,7 +61,6 @@
   <ItemGroup>
     <Folder Include="BusinessTests\" />
     <Folder Include="DaoTests\CollectionTests\" />
-    <Folder Include="DaoTests\EntityFrameworkTests\" />
     <Folder Include="EntitiesTests\" />
     <Folder Include="PortalTests\" />
     <Folder Include="ServiceTests\" />

@@ -64,6 +64,7 @@
     <Compile Include="Ligacoes\TurmaJogador.cs" />
     <Compile Include="Modalidade.cs" />
     <Compile Include="ModalidadePosicao.cs" />
+    <Compile Include="NivelTecnico.cs" />
     <Compile Include="Partida.cs" />
     <Compile Include="Posicao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

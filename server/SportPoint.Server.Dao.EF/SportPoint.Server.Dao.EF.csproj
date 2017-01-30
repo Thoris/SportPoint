@@ -51,9 +51,19 @@
     <Compile Include="Base\BaseRepositoryDao.cs" />
     <Compile Include="Base\FactoryDaoEF.cs" />
     <Compile Include="Base\IUnitOfWork.cs" />
+    <Compile Include="HorarioRepositoryDao.cs" />
+    <Compile Include="JogadorPosicaoRepositoryDao.cs" />
     <Compile Include="JogadorRepositoyDao.cs" />
+    <Compile Include="JogoDataJogadorRepositoryDao.cs" />
+    <Compile Include="JogoDataRepositoryDao.cs" />
+    <Compile Include="ModalidadePosicaoRepositoryDao.cs" />
     <Compile Include="ModalidadeRepositoryDao.cs" />
+    <Compile Include="NivelTecnicoRepositoryDao.cs" />
+    <Compile Include="PartidaRepositoryDao.cs" />
+    <Compile Include="PosicaoRepositoryDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TurmaJogadorRepositoryDao.cs" />
+    <Compile Include="TurmaRepositoryDao.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

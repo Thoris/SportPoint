@@ -44,10 +44,19 @@
     <Compile Include="Base\FactoryCollection.cs" />
     <Compile Include="Base\IBaseCollection.cs" />
     <Compile Include="Base\IUnitOfWorkCollection.cs" />
+    <Compile Include="HorarioDaoCollection.cs" />
+    <Compile Include="JogadorPosicaoDaoCollection.cs" />
+    <Compile Include="JogoDataJogadorDaoCollection.cs" />
     <Compile Include="ModalidadeDaoCollection.cs" />
     <Compile Include="JogadorDaoCollection.cs" />
+    <Compile Include="ModalidadePosicaoDaoCollection.cs" />
+    <Compile Include="NivelTecnicoDaoCollection.cs" />
+    <Compile Include="PartidaDaoCollection.cs" />
+    <Compile Include="PosicaoDaoCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Base\UnitOfWorkCollection.cs" />
+    <Compile Include="TurmaDaoCollection.cs" />
+    <Compile Include="TurmaJogadorDaoCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SportPoint.Server.Dao\SportPoint.Server.Dao.csproj">

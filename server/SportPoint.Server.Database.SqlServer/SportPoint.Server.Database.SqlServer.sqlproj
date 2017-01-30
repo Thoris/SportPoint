@@ -58,4 +58,20 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="0001.Create_Table_Modalidades.sql" />
+    <Build Include="0002.Create_Table_Jogadores.sql" />
+    <Build Include="0003.Create_Table_ModalidadePosicao.sql" />
+    <Build Include="0004.Create_Table_JogadoresPosicoes.sql" />
+    <Build Include="0005.Create_Table_NivesTecnicos.sql" />
+    <Build Include="0006.Create_Table_Turmas.sql" />
+    <Build Include="0007.Create_Table_TurmasJogadores.sql" />
+    <Build Include="0008.Create_Table_Horarios.sql" />
+    <Build Include="0009.Create_Table_JogosDatas.sql" />
+    <Build Include="0010.Create_Table_JogosDatasJogadores.sql" />
+    <Build Include="0011.Create_Table_Partidas.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="SportPoint.Server.Database.SqlServer.refactorlog" />
+  </ItemGroup>
 </Project>

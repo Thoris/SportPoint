@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportPoint.Server.Dao
 {
-    class INivelTecnicoDao
+    public interface INivelTecnicoDao : IGenericDao<Entities.NivelTecnico>
     {
     }
 }

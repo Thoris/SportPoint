@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportPoint.Server.Dao
 {
-    class ITurmaDao
+    public interface ITurmaDao : IGenericDao<Entities.Turma>
     {
     }
 }

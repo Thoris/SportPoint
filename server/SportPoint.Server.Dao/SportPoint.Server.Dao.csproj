@@ -44,8 +44,12 @@
     <Compile Include="IHorarioDao.cs" />
     <Compile Include="IJogadorDao.cs" />
     <Compile Include="IJogadorPosicaoDao.cs" />
+    <Compile Include="IJogoDataDao.cs" />
+    <Compile Include="IJogoDataJogadorDao.cs" />
     <Compile Include="IModalidadeDao.cs" />
+    <Compile Include="IModalidadePosicaoDao.cs" />
     <Compile Include="INivelTecnicoDao.cs" />
+    <Compile Include="IPartidaDao.cs" />
     <Compile Include="IPosicaoDao.cs" />
     <Compile Include="ITurmaDao.cs" />
     <Compile Include="ITurmaJogadorDao.cs" />
