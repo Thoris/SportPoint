@@ -10,10 +10,14 @@ namespace SportPoint.Server.Entities
     /// <summary>
     /// Entidade do jogador.
     /// </summary>
-    public class Jogador : Usuario
+    public class Jogador : Base.AuditModel
     {
         #region Properties
 
+        /// <summary>
+        /// Identificador do Jogador
+        /// </summary>
+        public int JogadorId { get; set; }
         /// <summary>
         /// Nome do jogador.
         /// </summary>
@@ -30,6 +34,10 @@ namespace SportPoint.Server.Entities
         /// Propriedade que configura/retorna o telefone do jogador.
         /// </summary>
         public string Telefone { get; set; }
+        /// <summary>
+        /// Login do usuário que gerencia o jogador.
+        /// </summary>
+        public string Login { get; set; }
 
         #endregion
     }

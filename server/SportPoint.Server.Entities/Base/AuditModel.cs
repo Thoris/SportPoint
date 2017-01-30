@@ -21,7 +21,8 @@ namespace SportPoint.Server.Entities.Base
         /// <summary>
         /// Propriedade que configura/retorna a data de criação do registro.
         /// </summary>
-        public DateTime DataCriacao { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime ? DataCriacao { get; set; }
         /// <summary>
         /// Propriedade que configura/retorna o login do usuário que modificou o registro.
         /// </summary>
@@ -29,11 +30,13 @@ namespace SportPoint.Server.Entities.Base
         /// <summary>
         /// Propriedade que configura/retorna a data de modificação do registro.
         /// </summary>
-        public DateTime DataModificacao { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime ? DataModificacao { get; set; }
         /// <summary>
         /// Propriedade que configura/retorna o status do registro.
         /// </summary>
-        public Enum.RowType StatusRegistro { get; set; }
+        //public Enum.RowType StatusRegistro { get; set; }
+        public int StatusRegistro { get; set; }
 
         #endregion
     }

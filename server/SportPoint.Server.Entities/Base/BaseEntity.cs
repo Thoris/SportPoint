@@ -20,27 +20,50 @@ namespace SportPoint.Server.Entities.Base
         /// </summary>
         public IDictionary<string, object> GetPrimaryKey()
         {
-            
+
             IDictionary<string, object> keys = new Dictionary<string, object>();
 
-                PropertyInfo [] properties = this.GetType().GetProperties();
+            PropertyInfo[] properties = this.GetType().GetProperties();
 
-                foreach (PropertyInfo property in properties)
+            foreach (PropertyInfo property in properties)
+            {
+                if (Attribute.IsDefined(property, typeof(KeyAttribute)))
                 {
-                    if (Attribute.IsDefined(property, typeof(KeyAttribute)))
-                    {
-                        keys.Add(property.Name, property.GetValue(this));
-                    }
+                    keys.Add(property.Name, property.GetValue(this));
                 }
+            }
 
-                return keys;
+            return keys;
 
-                    //return (from property in this.GetType().GetProperties()
-                    //        where Attribute.IsDefined(property, typeof(KeyAttribute))
-                    //        orderby ((ColumnAttribute)property.GetCustomAttributes(false).Single(
-                    //            attr => attr is ColumnAttribute)).Order ascending
-                    //        select property.GetValue(this)).ToArray();
-            
+            //return (from property in this.GetType().GetProperties()
+            //        where Attribute.IsDefined(property, typeof(KeyAttribute))
+            //        orderby ((ColumnAttribute)property.GetCustomAttributes(false).Single(
+            //            attr => attr is ColumnAttribute)).Order ascending
+            //        select property.GetValue(this)).ToArray();
+
+        }
+        public object[] GetKeys()
+        {
+           IList<object> keys = new List<object>();
+
+            PropertyInfo[] properties = this.GetType().GetProperties();
+
+            foreach (PropertyInfo property in properties)
+            {
+                if (Attribute.IsDefined(property, typeof(KeyAttribute)))
+                {
+                    keys.Add(property.GetValue(this));
+                }
+            }
+
+            object[] res = new object[keys.Count];
+
+            for (int c=0; c < keys.Count; c++)
+            {
+                res[c] = keys[c];
+            }
+
+            return res;
         }
         #endregion
     }

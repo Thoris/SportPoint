@@ -75,9 +75,14 @@ namespace SportPoint.Server.Dao.EF.Base
         /// </returns>
         public T Load(T entity)
         {
-            T model = _context.Set<T>().Find(entity);
+            Entities.Base.BaseEntity keyEntity = entity as Entities.Base.BaseEntity;
 
-            return model; ;
+            object[] keys = keyEntity.GetKeys();
+
+
+            T model = _context.Set<T>().Find(keys);
+
+            return model;
         }
         /// <summary>
         /// Método que insere um registro na base de dados.
@@ -120,6 +125,35 @@ namespace SportPoint.Server.Dao.EF.Base
 
 
 
+            var entry = _context.Entry<T>(entity);
+
+            if (entry.State == EntityState.Detached)
+            {
+                var set = _context.Set<T>();
+
+                Entities.Base.BaseEntity data = entity as Entities.Base.BaseEntity;
+
+                T attachedEntity = set.Find(data.GetKeys());
+
+                if (attachedEntity != null)
+                {
+                    var attachedEntry = _context.Entry(attachedEntity);
+                    attachedEntry.CurrentValues.SetValues(entity);
+                }
+                else
+                {
+                    entry.State = EntityState.Modified; // This should attach entity
+                }
+            }
+
+            int result = _context.Save();
+            return result;
+
+
+
+
+
+            //_entities.Entry(entity).State = System.Data.EntityState.Modified;
 
             //ERR-------------------------
             //T existing = _context.Set<T>().Find(1);

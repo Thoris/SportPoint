@@ -11,7 +11,7 @@ namespace SportPoint.Server.Entities
     /// <summary>
     /// Entidade do usuário que possui informações básicas de acesso ao sistema.
     /// </summary>
-    public abstract class Usuario : AuditModel
+    public class Usuario : AuditModel
     {
         #region Properties
 

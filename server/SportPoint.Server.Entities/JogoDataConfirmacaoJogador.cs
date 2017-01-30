@@ -20,7 +20,7 @@ namespace SportPoint.Server.Entities
         /// <summary>
         /// Propriedade que configura/retorna o identificador do jogador que realizou a confirmação.
         /// </summary>
-        public string JogadorLogin { get; set; }
+        public int JogadorId { get; set; }
         /// <summary>
         /// Propriedade que configura/retorna a data de confirmação do jogador.
         /// </summary>

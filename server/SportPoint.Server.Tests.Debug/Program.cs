@@ -15,9 +15,11 @@ namespace SportPoint.Server.Tests.Debug
 
             //IDictionary<string, object> res = test.PrimaryKey;
 
-            new SportPoint.Server.TestsVS.IntegrationTests.ModalidadeIntegrationTests().TestAllMethods();
+            //new SportPoint.Server.TestsVS.IntegrationTests.ModalidadeIntegrationTests().TestAllMethods();
+            //new SportPoint.Server.TestsVS.IntegrationTests.JogadorIntegrationTests().TestAllMethods();
 
-            new SportPoint.Server.TestsVS.IntegrationTests.JogadorIntegrationTests().TestAllMethods();
+
+            new SportPoint.Server.TestsVS.DaoTests.EntityFrameworkTests.ModalidadeDaoEFTests().TestAllMethods();
         }
     }
 }

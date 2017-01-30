@@ -119,7 +119,7 @@ namespace SportPoint.Server.Business.Base
                 baseModel.DataCriacao = DateTime.Now;
                 baseModel.ModificadoPor = _currentUserName;
                 baseModel.DataModificacao = DateTime.Now;
-                baseModel.StatusRegistro = Entities.Enum.RowType.Nennhum;
+                baseModel.StatusRegistro = (int)Entities.Enum.RowType.Nennhum;
             }
 
             long result = _dao.Insert(entity);
