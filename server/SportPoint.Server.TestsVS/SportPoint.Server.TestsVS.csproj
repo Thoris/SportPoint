@@ -59,17 +59,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DaoTests\EntityFrameworkTests\EFGenericBaseTests.cs" />
+    <Compile Include="BusinessTests\GenericBaseBOTests.cs" />
+    <Compile Include="BusinessTests\ModalidadeBOTests.cs" />
+    <Compile Include="DaoTests\EntityFrameworkTests\GenericBaseEFTests.cs" />
     <Compile Include="DaoTests\EntityFrameworkTests\ModalidadeDaoEFTests.cs" />
     <Compile Include="IntegrationTests\Base\UrlTest.cs" />
     <Compile Include="IntegrationTests\GenericBaseTests.cs" />
     <Compile Include="IntegrationTests\JogadorIntegrationTests.cs" />
     <Compile Include="IntegrationTests\ModalidadeIntegrationTests.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BusinessTests\" />
     <Folder Include="DaoTests\CollectionTests\" />
     <Folder Include="EntitiesTests\" />
     <Folder Include="PortalTests\" />

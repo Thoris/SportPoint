@@ -9,7 +9,7 @@ namespace SportPoint.Server.Business
     /// <summary>
     /// Classe que trabalha com a fabrica do objetos de regra de negócio.
     /// </summary>
-    public class FactoryBO 
+    public class FactoryBO : Interfaces.IFactoryBO
     {
         #region Enumerations
 
@@ -136,19 +136,29 @@ namespace SportPoint.Server.Business
             return _factoryDao;
         }
 
-        /// <summary>
-        /// Método que cria o objeto de regra de negócio de gerenciamento do jogador.
-        /// </summary>
-        /// <returns>Objeto de gerenciamento de regras do jogador.</returns>
-        public static JogadorBO CreateJogadorBO()
+        ///// <summary>
+        ///// Método que cria o objeto de regra de negócio de gerenciamento do jogador.
+        ///// </summary>
+        ///// <returns>Objeto de gerenciamento de regras do jogador.</returns>
+        //public static JogadorBO CreateJogadorBO()
+        //{
+        //    return new JogadorBO("", GetFactoryDao().CreateJogadorDao());
+        //}
+        //public static ModalidadeBO CreateModalidadeBO()
+        //{
+        //    return new ModalidadeBO("", GetFactoryDao().CreateModalidadeDao());
+        //}
+
+        #endregion
+
+        public Interfaces.IJogadorBO CreateJogador()
         {
             return new JogadorBO("", GetFactoryDao().CreateJogadorDao());
         }
-        public static ModalidadeBO CreateModalidadeBO()
+
+        public Interfaces.IModalidadeBO CreateModalidade()
         {
             return new ModalidadeBO("", GetFactoryDao().CreateModalidadeDao());
         }
-
-        #endregion
     }
 }

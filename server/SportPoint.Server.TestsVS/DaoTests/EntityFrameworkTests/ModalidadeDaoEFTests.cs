@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace SportPoint.Server.TestsVS.DaoTests.EntityFrameworkTests
 {
     [TestClass]
-    public class ModalidadeDaoEFTests : EFGenericBaseTests<Entities.Modalidade>
+    public class ModalidadeDaoEFTests : GenericBaseEFTests<Entities.Modalidade>
     {
         #region Constructors/Destructors
 

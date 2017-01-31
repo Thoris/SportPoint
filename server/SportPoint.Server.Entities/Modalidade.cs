@@ -32,7 +32,7 @@ namespace SportPoint.Server.Entities
         /// <summary>
         /// Propriedade que configura/retorna a quantidade de pessoas por time.
         /// </summary>
-        public int QtdPessoasTime { get; set; }
+        public short ? QtdPessoasTime { get; set; }
 
         #endregion
     }

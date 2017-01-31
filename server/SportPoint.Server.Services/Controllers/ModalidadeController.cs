@@ -22,7 +22,7 @@ namespace SportPoint.Server.Services.Controllers
         #region Constructors/Destructors
 
         public ModalidadeController()
-            : base ( Business.FactoryBO.CreateModalidadeBO())
+            : base ( new Business.FactoryBO().CreateModalidade())
         {
 
         }

@@ -147,6 +147,10 @@ namespace SportPoint.Server.Dao.EF.Base
             }
 
             int result = _context.Save();
+
+            if (result == 0)
+                return 1;
+
             return result;
 
 

@@ -30,7 +30,7 @@ namespace SportPoint.Server.Services.Controllers.Manager
         /// Inicializa nova instância da classe <see cref="JogadorController"/>.
         /// </summary>
         public JogadorController()
-            : base ( Business.FactoryBO.CreateJogadorBO())
+            : base ( new Business.FactoryBO().CreateJogador())
         {
 
         }

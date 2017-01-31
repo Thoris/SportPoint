@@ -36,7 +36,7 @@ namespace SportPoint.Server.Entities.Base
         /// Propriedade que configura/retorna o status do registro.
         /// </summary>
         //public Enum.RowType StatusRegistro { get; set; }
-        public int StatusRegistro { get; set; }
+        public short ? StatusRegistro { get; set; }
 
         #endregion
     }

@@ -9,15 +9,38 @@ namespace SportPoint.Server.Integration.Base
     /// <summary>
     /// Classe que possui a fábrica de objetos de integração.
     /// </summary>
-    public class FactoryIntegration 
+    public class FactoryIntegration  : FactoryRestIntegration
     {
+        #region Enumerations
+
+        /// <summary>
+        /// Enumeração que possui as possibilidades de conexão com o sistema.
+        /// </summary>
+        private enum TypeIntegration
+        {
+            /// <summary>
+            /// Conexão utilizando rest para tráfego de informação.
+            /// </summary>
+            Rest = 0,
+            /// <summary>
+            /// Conexão direta com a camada de negócio.
+            /// </summary>
+            Business,
+
+        }
+
+        #endregion
 
         #region Variables
 
         /// <summary>
-        /// Variável que armazena a url usada para requisições via REST.
+        /// Variável que possui o tipo de conexão para gerenciamento da base de dados.
         /// </summary>
-        private static string _url;
+        private static TypeIntegration _typeIntegration;
+        /// <summary>
+        /// Variável que armazena a fábrica de conexão com integração ao sistema.
+        /// </summary>
+        private static Business.Interfaces.IFactoryBO _factoryIntegration;
 
         #endregion
 
@@ -30,13 +53,9 @@ namespace SportPoint.Server.Integration.Base
         {
 
         }
-        /// <summary>
-        /// Inicializa nova instância da classe <see cref="FactoryIntegration" />.
-        /// </summary>
-        /// <param name="url">Url de conexão.</param>
-        public FactoryIntegration(string url)
+        public FactoryIntegration(Business.Interfaces.IFactoryBO factoryIntegration)
         {
-            _url = url;
+            _factoryIntegration = factoryIntegration;
         }
 
         #endregion
@@ -44,30 +63,73 @@ namespace SportPoint.Server.Integration.Base
         #region Methods
 
         /// <summary>
-        /// Método que carrega a url para realização das chamadas de integração.
+        /// Método que retorna o tipo de conexão que deve ser realizado para acesso à base de dados.
         /// </summary>
-        /// <returns>Url configurada.</returns>
-        private static string GetUrl()
+        /// <returns>Tipo de acesso à dados configurado. Caso não encontre, utiliza-se o padrão EntityFramework</returns>
+        private static TypeIntegration GetTypeIntegration()
         {
-            //Se não existe url carregada
-            if (string.IsNullOrEmpty(_url))
+            //Buscando a configuração do tipo de acesso à dados
+            string daoType = System.Configuration.ConfigurationManager.AppSettings["FactoryTypeIntegration"];
+
+            //Se existe informação configurada para o tipo de acesso
+            if (!string.IsNullOrEmpty(daoType))
             {
-                string url = System.Configuration.ConfigurationManager.AppSettings["UrlIntegration"];
+                //Verificando qual tipo corresponde ao configurado
+                string[] daoTypes = Enum.GetNames(typeof(TypeIntegration));
 
-                if (!string.IsNullOrEmpty(url))
+                //Buscando qual tipo se encaixa
+                for (int c = 0; c < daoTypes.Length; c++)
                 {
-                    _url = System.Configuration.ConfigurationManager.AppSettings["UrlIntegration"];
-                }
-                else
-                {
-                    _url = "http://localhost:1230/";
-                }
-            }//endif url null
+                    //Se encontrou a descrição do tipo de conexão
+                    if (string.Compare(daoType, daoTypes[c], true) == 0)
+                    {
+                        return (TypeIntegration)c;
+                    }
+                    //Se encontrou o índice do tipo de conexão
+                    else if (string.Compare(daoType, c.ToString(), true) == 0)
+                    {
+                        return (TypeIntegration)c;
+                    }//endif
 
-            return _url;
+                }//end for c
 
+            }//endif tipo de conexão à dados
+
+            return TypeIntegration.Rest;
         }
 
+        /// <summary>
+        /// Método que retorna o objeto de fábrica de objetos para acesso à banco de dados.
+        /// </summary>
+        /// <returns>Objeto que possui a fábrica de objetos de conexão com o banco de dados.</returns>
+        private static Business.Interfaces.IFactoryBO GetFactoryIntegration()
+        {
+            //Se o objeto de conexão ainda não foi criado
+            if (_factoryIntegration == null)
+            {
+                //Buscando qual tipo de conexão com a base de dados deve utilizar
+                _typeIntegration = GetTypeIntegration();
+
+                switch (_typeIntegration)
+                {
+                    case TypeIntegration.Rest:
+
+                        _factoryIntegration = new FactoryRestIntegration();
+
+                        break;
+
+                    case TypeIntegration.Business:
+
+                        _factoryIntegration = new Business.FactoryBO();
+
+                        break;
+
+                }
+
+            }//endif factoryDao == null
+
+            return _factoryIntegration;
+        }
         #endregion
 
         #region IFactoryDao members
@@ -78,9 +140,20 @@ namespace SportPoint.Server.Integration.Base
         /// <returns>
         /// Objeto que possui regras de negócio do jogador.
         /// </returns>
-        public static JogadorIntegration CreateJogador()
+        public static Business.Interfaces.IJogadorBO CreateJogador()
         {
-            return new JogadorIntegration (GetUrl ());
+            return GetFactoryIntegration().CreateJogador();
+        }
+
+        /// <summary>
+        /// Método que cria o objeto de regras de negócio da modalidade.
+        /// </summary>
+        /// <returns>
+        /// Objeto que possui regras de negócio da modalidade.
+        /// </returns>
+        public static Business.Interfaces.IModalidadeBO CreateModalidade()
+        {
+            return GetFactoryIntegration().CreateModalidade();
         }
 
         #endregion

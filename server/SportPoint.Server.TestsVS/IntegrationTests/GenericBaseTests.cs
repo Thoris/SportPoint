@@ -152,6 +152,31 @@ namespace SportPoint.Server.TestsVS.IntegrationTests
             long resPrep = _obj.Insert(entityToTest);
             T entityToUpdate = GenerateEntityToUpdate();
 
+
+            Entities.Base.BaseEntity dataKey = entityToTest as Entities.Base.BaseEntity;
+            IDictionary<string, object> keys = dataKey.GetPrimaryKey();
+
+            PropertyInfo[] properties = entityToUpdate.GetType().GetProperties();
+
+            foreach (PropertyInfo property in properties)
+            {
+                foreach (var key in keys)
+                {
+                    if (string.Compare(property.Name, key.Key, true) == 0)
+                    {
+                        PropertyInfo propertyInfo = entityToUpdate.GetType().GetProperty(property.Name);
+                        // make sure object has the property we are after
+                        if (propertyInfo != null)
+                        {
+                            propertyInfo.SetValue(entityToUpdate, key.Value, null);
+                        }
+
+                        break;
+                    }
+                }
+            }
+
+
             try
             {
                 bool res = _obj.Update(entityToUpdate);
