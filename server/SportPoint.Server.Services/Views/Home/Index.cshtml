@@ -1,0 +1,78 @@
+﻿@model System.Web.Http.Description.IApiExplorer
+@{ ViewBag.Title = "Services"; }
+<header>
+    <div class="content-wrapper">
+        <div class="float-left">
+            <p class="site-title">
+                <a href="~/">SportPoint</a>
+            </p>
+        </div>
+    </div>
+</header>
+
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>SportPoint Web API Help Page</h1>
+            </hgroup>
+            <p>
+                Prover e facilitar a integração de diferentes serviços utilizados pelo SportPoint.
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        <h3>APIs</h3>
+        <hr />
+        <ul>
+            @foreach (var api in Model.ApiDescriptions)
+            {
+                <li>
+                    <h5>@api.HttpMethod @api.RelativePath</h5>
+                    <blockquote>
+                        <p>@SportPoint.Server.Services.Utils.Documentation.GetSummary(api.Documentation)</p>
+                        @if (api.ParameterDescriptions.Count > 0)
+                        {
+                            <h6>Parameters</h6>
+                            <ul>
+                                @foreach (var parameter in api.ParameterDescriptions)
+                                {
+                                    <li><b>@parameter.Name:</b> @parameter.Documentation</li>
+                                }
+                            </ul>
+                        }
+
+                        @if (SportPoint.Server.Services.Utils.Documentation.GetSample(api.Documentation).Length > 0)
+                        {
+                            <h6>Exemplo</h6>
+                            foreach (var line in SportPoint.Server.Services.Utils.Documentation.GetSample(api.Documentation))
+                            {
+                                <p>@line</p>
+                            }
+                        }
+                    </blockquote>
+                    <hr />
+                </li>
+            }
+
+
+
+        @*@foreach (var api in Model.ApiDescriptions)
+        {
+            <h5>@api.HttpMethod @api.RelativePath</h5>
+            <p>@api.Documentation</p>
+            @if (api.ParameterDescriptions.Count > 0)
+            {
+                <h6>Parameters</h6>
+                <ul>
+                   @foreach (var parameter in api.ParameterDescriptions)
+                   {
+                       <li>@parameter.Name: @parameter.Documentation (@parameter.Source)</li>
+                   }
+                </ul>
+            }
+        }*@
+        </ul>
+        <hr />
+    </section>
+</div>

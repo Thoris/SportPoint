@@ -7,6 +7,8 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using System.Web.Http.Description;
+using SportPoint.Server.Services.HelpProvider;
 
 namespace SportPoint.Server.Services
 {
@@ -20,8 +22,22 @@ namespace SportPoint.Server.Services
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
 
+             AreaRegistration.RegisterAllAreas();
 
             //WebApiConfig.Register(GlobalConfiguration.Configuration);
+
+
+            //Para que o formato do retorno da api seja json.
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+
+            //Para tratar o retorno do formato de datas
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new Utils.CustomJsonDateFormat());
+
+            //Para gerar a documentação do sistema.
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IDocumentationProvider), new XmlCommentDocumentationProvider(HttpContext.Current.Server.MapPath("~/bin/SportPoint.Server.Services.XML")));
+
+            //Cors
+            //GlobalConfiguration.Configuration.MessageHandlers.Add(new CorsHandler());
         }
     }
 }
