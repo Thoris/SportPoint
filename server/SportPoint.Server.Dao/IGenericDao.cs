@@ -57,6 +57,12 @@ namespace SportPoint.Server.Dao
         /// </summary>
         /// <returns>Quantidade de registros encontrados.</returns>
         long Count();
+        /// <summary>
+        /// Método que retorna a quantidade de registros da entidade.
+        /// </summary>
+        /// <param name="where">Condição que atende aos registros pesquisados.</param>
+        /// <returns>Total de itens encontrados.</returns>
+        long Count(Expression<Func<T, bool>> where);
 
     }
 }

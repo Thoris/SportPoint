@@ -66,7 +66,19 @@ namespace SportPoint.Server.Services.Controllers
         [HttpPost]
         public long Insert(T entity)
         {
-            return _bo.Insert(entity);
+            long res = _bo.Insert(entity);
+
+            Entities.Base.BaseEntity baseEntity = entity as Entities.Base.BaseEntity;
+
+            string identityName = baseEntity.GetIdentifyName();
+
+            if (string.IsNullOrEmpty(identityName))
+                return res;
+
+            object resIdentity = baseEntity.GetIdentityValue();
+
+            return (long)resIdentity;
+
         }
         /// <summary>
         /// Método que apaga uma entidade da base de dados.

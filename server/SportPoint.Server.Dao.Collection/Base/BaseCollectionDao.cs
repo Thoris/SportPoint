@@ -202,6 +202,10 @@ namespace SportPoint.Server.Dao.Collection.Base
         {
             return base.Table.Count;
         }
+        public long Count(System.Linq.Expressions.Expression<Func<T, bool>> where)
+        {
+            return base.Table.Count;
+        }
 
         #endregion
 

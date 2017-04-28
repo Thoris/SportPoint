@@ -36,6 +36,7 @@ namespace SportPoint.Server.TestsVS.DaoTests.EntityFrameworkTests
             TestGetList();
             TestGetAll();
             TestCount();
+            TestCountWhere();
         }
 
         protected virtual T GenerateEntity()
@@ -108,6 +109,8 @@ namespace SportPoint.Server.TestsVS.DaoTests.EntityFrameworkTests
             //Preparing
             T entityToTest = GenerateEntity();
             long resPreparing = _dao.Insert(entityToTest);
+
+            Entities.Base.BaseEntity x = entityToTest as Entities.Base.BaseEntity;
 
             try
             {
@@ -216,6 +219,7 @@ namespace SportPoint.Server.TestsVS.DaoTests.EntityFrameworkTests
             try
             {
                 ICollection<T> list = _dao.GetAll();
+                //ICollection<T> list = _dao.GetList((Entities.mo));
                 Assert.IsNotNull(list);
                 Assert.AreEqual(countData + 1, list.Count);
             }
@@ -246,6 +250,24 @@ namespace SportPoint.Server.TestsVS.DaoTests.EntityFrameworkTests
             }
         }
         public void TestCount()
+        {
+            T entityToTest = GenerateEntity();
+            long countData = _dao.Count();
+            long resPrep = _dao.Insert(entityToTest);
+
+            try
+            {
+                long countVerify = _dao.Count();
+                Assert.AreEqual(countData + 1, countVerify);
+            }
+            finally
+            {
+                //Cleaning
+                int resClean = _dao.Delete(entityToTest);
+
+            }
+        }
+        public void TestCountWhere()
         {
             T entityToTest = GenerateEntity();
             long countData = _dao.Count();

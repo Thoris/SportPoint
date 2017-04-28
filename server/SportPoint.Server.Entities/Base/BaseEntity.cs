@@ -15,6 +15,7 @@ namespace SportPoint.Server.Entities.Base
     public class BaseEntity
     {
         #region Properties
+        
         /// <summary>
         /// Propriedade que retorna a lista de propriedades chave que contemplam a entidade.
         /// </summary>
@@ -42,9 +43,13 @@ namespace SportPoint.Server.Entities.Base
             //        select property.GetValue(this)).ToArray();
 
         }
+        /// <summary>
+        /// Método que busca os valores das chaves da entidade.
+        /// </summary>
+        /// <returns>Lista de valores de chaves.</returns>
         public object[] GetKeys()
         {
-           IList<object> keys = new List<object>();
+            IList<object> keys = new List<object>();
 
             PropertyInfo[] properties = this.GetType().GetProperties();
 
@@ -65,6 +70,37 @@ namespace SportPoint.Server.Entities.Base
 
             return res;
         }
+        public string GetIdentifyName()
+        {
+            PropertyInfo[] properties = this.GetType().GetProperties();
+
+            foreach (PropertyInfo property in properties)
+            {
+
+                if (property.PropertyType.IsLayoutSequential)
+                {
+                    return property.Name;
+                }
+            }
+
+            return null;
+        }
+        public object GetIdentityValue()
+        {
+            PropertyInfo[] properties = this.GetType().GetProperties();
+
+            foreach (PropertyInfo property in properties)
+            {
+
+                if (property.PropertyType.IsLayoutSequential)
+                {
+                    return property.GetValue(this);
+                }
+            }
+
+            return null;
+        }
+
         #endregion
     }
 }

@@ -55,6 +55,12 @@ namespace SportPoint.Server.Business.Base
         /// </summary>
         /// <returns>Quantidade de registros de uma entidade.</returns>
         long Count();
+        /// <summary>
+        /// Método que retorna a quantidade de registro de uma entidade específica.
+        /// </summary>
+        /// <param name="where">Condição para pesquisa dos registros.</param>
+        /// <returns>Quantidade de registros encontrados.</returns>
+        long Count(Expression<Func<T, bool>> where);
 
     }
 }

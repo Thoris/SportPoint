@@ -61,6 +61,11 @@ namespace SportPoint.Server.TestsVS.IntegrationTests
         {
             base.TestCount();
         }
+        [TestMethod]
+        public void TestIntegrationModalidadeCountWhere()
+        {
+            base.TestCountWhere();
+        }
 
         #endregion
     }

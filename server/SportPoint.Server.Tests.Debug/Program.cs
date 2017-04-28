@@ -20,6 +20,7 @@ namespace SportPoint.Server.Tests.Debug
 
 
             new SportPoint.Server.TestsVS.DaoTests.EntityFrameworkTests.ModalidadeDaoEFTests().TestAllMethods();
+
         }
     }
 }

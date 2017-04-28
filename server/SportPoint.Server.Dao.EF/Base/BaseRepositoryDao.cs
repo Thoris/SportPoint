@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,8 +65,26 @@ namespace SportPoint.Server.Dao.EF.Base
 
         #endregion
 
+        #region Methods
+
+        public void ThrowException(DbEntityValidationException dbEx)
+        {
+            var msg = string.Empty;
+            foreach (var validationErrors in dbEx.EntityValidationErrors)
+            {
+                foreach (var validationError in validationErrors.ValidationErrors)
+                {
+                    msg += Environment.NewLine + string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                }
+            }
+            var fail = new Exception(msg, dbEx);
+            throw fail;
+        }
+
+        #endregion
+
         #region IGeneric members
-       
+
         /// <summary>
         /// Método que carrega um registro a partir de dados básicos da entidade.
         /// </summary>
@@ -75,14 +94,26 @@ namespace SportPoint.Server.Dao.EF.Base
         /// </returns>
         public T Load(T entity)
         {
-            Entities.Base.BaseEntity keyEntity = entity as Entities.Base.BaseEntity;
+            try
+            {
+                Entities.Base.BaseEntity keyEntity = entity as Entities.Base.BaseEntity;
 
-            object[] keys = keyEntity.GetKeys();
+                object[] keys = keyEntity.GetKeys();
 
 
-            T model = _context.Set<T>().Find(keys);
+                T model = _context.Set<T>().Find(keys);
 
-            return model;
+                return model;
+            }
+            catch(DbEntityValidationException dbEx)
+            {
+                ThrowException(dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return null;
         }
         /// <summary>
         /// Método que insere um registro na base de dados.
@@ -93,10 +124,22 @@ namespace SportPoint.Server.Dao.EF.Base
         /// </returns>
         public long Insert(T entity)
         {
-            _context.Set<T>().Add(entity);
-            int result = _context.Save();
+            try
+            {
+                _context.Set<T>().Add(entity);
+                int result = _context.Save();
 
-            return result;
+                return result;            
+            }
+            catch(DbEntityValidationException dbEx)
+            {
+                ThrowException(dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return 0;
         }
         /// <summary>
         /// Método que exclui um registro da base de dados.
@@ -107,10 +150,22 @@ namespace SportPoint.Server.Dao.EF.Base
         /// </returns>
         public int Delete(T entity)
         {
-            _context.Set<T>().Remove(entity);
-            int result = _context.Save();
+            try
+            {
+                _context.Set<T>().Remove(entity);
+                int result = _context.Save();
 
-            return result;
+                return result;
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                ThrowException(dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return 0;
         }
         /// <summary>
         /// Método que atualiza um registro na base de dados.
@@ -122,109 +177,114 @@ namespace SportPoint.Server.Dao.EF.Base
         /// </returns>
         public int Update(T entity)
         {
-
-
-
-            var entry = _context.Entry<T>(entity);
-
-            if (entry.State == EntityState.Detached)
+            try
             {
-                var set = _context.Set<T>();
+                var entry = _context.Entry<T>(entity);
 
-                Entities.Base.BaseEntity data = entity as Entities.Base.BaseEntity;
-
-                T attachedEntity = set.Find(data.GetKeys());
-
-                if (attachedEntity != null)
+                if (entry.State == EntityState.Detached)
                 {
-                    var attachedEntry = _context.Entry(attachedEntity);
-                    attachedEntry.CurrentValues.SetValues(entity);
+                    var set = _context.Set<T>();
+
+                    Entities.Base.BaseEntity data = entity as Entities.Base.BaseEntity;
+
+                    T attachedEntity = set.Find(data.GetKeys());
+
+                    if (attachedEntity != null)
+                    {
+                        var attachedEntry = _context.Entry(attachedEntity);
+                        attachedEntry.CurrentValues.SetValues(entity);
+                    }
+                    else
+                    {
+                        entry.State = EntityState.Modified; // This should attach entity
+                    }
                 }
-                else
-                {
-                    entry.State = EntityState.Modified; // This should attach entity
-                }
+
+                int result = _context.Save();
+
+                if (result == 0)
+                    return 1;
+
+                return result;
+
+                #region Comments
+                //_entities.Entry(entity).State = System.Data.EntityState.Modified;
+
+                //ERR-------------------------
+                //T existing = _context.Set<T>().Find(1);
+                //if (existing != null)
+                //{
+                //    _context.Entry(existing).CurrentValues.SetValues(entity);
+                //    _context.SaveChanges();
+                //}
+
+
+                //DbEntityEntry<T> entry = _context.Entry(entity);
+
+
+                //var oc = ((IObjectContextAdapter)_context).ObjectContext;
+                //ObjectStateEntry stateEntry = oc.ObjectStateManager.GetObjectStateEntry(entry.Entity);
+
+
+                //int value = (int)GetPrimaryKeyValue(entry);
+
+                //if (value == 0)
+                //{
+
+                //}
+
+                //if (entry.State == EntityState.Detached)
+                //{
+                //    _context.Set<T>().Attach(entity);
+                //    entry.State = EntityState.Modified;
+                //}
+
+                //_context.Entry(entity).CurrentValues.SetValues(entity);
+                //int result = _context.Save();
+                //ERR-------------------------
+
+
+
+
+
+
+
+
+
+                //var entry = _context.Entry<T>(entity);
+
+                //if (entry.State == EntityState.Detached)
+                //{
+                //    var set = _context.Set<T>();
+
+                //    Model.BaseModel data = oldEntity as Model.BaseModel;
+
+                //    T attachedEntity = set.Find(data.ID);
+
+                //    if (attachedEntity != null)
+                //    {
+                //        var attachedEntry = _context.Entry(attachedEntity);
+                //        attachedEntry.CurrentValues.SetValues(entity);
+                //    }
+                //    else
+                //    {
+                //        entry.State = EntityState.Modified; // This should attach entity
+                //    }
+                //}
+
+                //int result = _context.Save();
+                //return result;
+                #endregion
+
             }
-
-            int result = _context.Save();
-
-            if (result == 0)
-                return 1;
-
-            return result;
-
-
-
-
-
-            //_entities.Entry(entity).State = System.Data.EntityState.Modified;
-
-            //ERR-------------------------
-            //T existing = _context.Set<T>().Find(1);
-            //if (existing != null)
-            //{
-            //    _context.Entry(existing).CurrentValues.SetValues(entity);
-            //    _context.SaveChanges();
-            //}
-
-
-            //DbEntityEntry<T> entry = _context.Entry(entity);
-
-
-            //var oc = ((IObjectContextAdapter)_context).ObjectContext;
-            //ObjectStateEntry stateEntry = oc.ObjectStateManager.GetObjectStateEntry(entry.Entity);
-
-
-            //int value = (int)GetPrimaryKeyValue(entry);
-
-            //if (value == 0)
-            //{
-
-            //}
-
-            //if (entry.State == EntityState.Detached)
-            //{
-            //    _context.Set<T>().Attach(entity);
-            //    entry.State = EntityState.Modified;
-            //}
-
-            //_context.Entry(entity).CurrentValues.SetValues(entity);
-            //int result = _context.Save();
-            //ERR-------------------------
-
-
-
-
-
-
-
-
-
-            //var entry = _context.Entry<T>(entity);
-
-            //if (entry.State == EntityState.Detached)
-            //{
-            //    var set = _context.Set<T>();
-
-            //    Model.BaseModel data = oldEntity as Model.BaseModel;
-
-            //    T attachedEntity = set.Find(data.ID);
-
-            //    if (attachedEntity != null)
-            //    {
-            //        var attachedEntry = _context.Entry(attachedEntity);
-            //        attachedEntry.CurrentValues.SetValues(entity);
-            //    }
-            //    else
-            //    {
-            //        entry.State = EntityState.Modified; // This should attach entity
-            //    }
-            //}
-
-            //int result = _context.Save();
-            //return result;
-
-
+            catch (DbEntityValidationException dbEx)
+            {
+                ThrowException(dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             return 0;
         }
         /// <summary>
@@ -236,7 +296,19 @@ namespace SportPoint.Server.Dao.EF.Base
         /// </returns>
         public ICollection<T> GetList(System.Linq.Expressions.Expression<Func<T, bool>> where)
         {
-            return _context.Set<T>().Where(where).ToList();
+            try
+            {
+                return _context.Set<T>().Where(where).ToList();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                ThrowException(dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return null;
         }
         /// <summary>
         /// Método que retorna lista de registros de uma entidade em específico.
@@ -246,7 +318,21 @@ namespace SportPoint.Server.Dao.EF.Base
         /// </returns>
         public ICollection<T> GetAll()
         {
-            return _context.Set<T>().ToList();
+            try
+            {
+                return _context.Set<T>().ToList();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                ThrowException(dbEx);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            return null;
+            
         }
         /// <summary>
         /// Método que retorna a quantidade de registros da entidade.
@@ -256,12 +342,32 @@ namespace SportPoint.Server.Dao.EF.Base
         /// </returns>
         public long Count()
         {
-            int result = _context.Set<T>().Count();
+            try
+            {
+                int result = _context.Set<T>().Count();
 
-            return result;
+                return result;
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                ThrowException(dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
+            return 0;
         }
-
+        /// <summary>
+        /// Método que retorna a quantidade de registros de uma entidade.
+        /// </summary>
+        /// <param name="where">Condição para busca da quantidade de registros.</param>
+        /// <returns>Quantidade de registros encontrados.</returns>
+        public long Count(System.Linq.Expressions.Expression<Func<T, bool>> where)
+        {
+            return _context.Set<T>().Where(where).ToList().Count;
+        }
         #endregion
 
         #region IDiposable members
@@ -274,6 +380,6 @@ namespace SportPoint.Server.Dao.EF.Base
             _context.Dispose();
         }
 
-        #endregion
+        #endregion 
     }
 }

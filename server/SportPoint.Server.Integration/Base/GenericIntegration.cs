@@ -182,7 +182,14 @@ namespace SportPoint.Server.Integration.Base
 
             return HttpGetApi<long>(new Dictionary<string, string>(), "Count");
         }
+        public long Count(Expression<Func<T, bool>> where)
+        {
+            return HttpGetApi<long>(new Dictionary<string, string>(), "Count");
+        }
 
         #endregion
+
+
+
     }
 }

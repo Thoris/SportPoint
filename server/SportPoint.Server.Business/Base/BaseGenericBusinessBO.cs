@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -222,7 +223,7 @@ namespace SportPoint.Server.Business.Base
         /// </summary>
         /// <param name="where">Condição para retornar os registros</param>
         /// <returns>Coleção de itens encontrados.</returns>
-        public ICollection<T> GetList(System.Linq.Expressions.Expression<Func<T, bool>> where)
+        public ICollection<T> GetList(Expression<Func<T, bool>> where)
         {
             if (IsSaveLog)
                 CheckStart();
@@ -258,6 +259,17 @@ namespace SportPoint.Server.Business.Base
                 else
                     LogTool.Debug(this, result.GetType() + ": " + GetMessageTotalTime("Total of items:" + result.Count.ToString()));
             }
+
+            return result;
+        }
+        /// <summary>
+        /// Método que retorna a quantidade de registro de uma entidade específica.
+        /// </summary>
+        /// <param name="where">Condição para pesquisa dos registros.</param>
+        /// <returns>Quantidade de registros encontrados.</returns>
+        public long Count(Expression<Func<T, bool>> where)
+        {
+            long result = _dao.Count(where);
 
             return result;
         }

@@ -1,9 +1,12 @@
-﻿using System;
+﻿using SportPoint.Server.Dao.EF.Base;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,6 +41,28 @@ namespace SportPoint.Server.Dao.EF
 
         #endregion
 
+#region Comments
+
+        //public new IDbSet<TEntity> Set<TEntity>() where TEntity : Entities.Base.BaseEntity
+        //{
+        //    return base.Set<TEntity>();
+        //}
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
+        //   .Where(type => !String.IsNullOrEmpty(type.Namespace))
+        //   .Where(type => type.BaseType != null && type.BaseType.IsGenericType
+        //        && type.BaseType.GetGenericTypeDefinition() == typeof(EntityTypeConfiguration<>));
+        //    foreach (var type in typesToRegister)
+        //    {
+        //        dynamic configurationInstance = Activator.CreateInstance(type);
+        //        modelBuilder.Configurations.Add(configurationInstance);
+        //    }
+        //    base.OnModelCreating(modelBuilder);
+        //}
+#endregion
+
         #region Methods
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -52,7 +77,24 @@ namespace SportPoint.Server.Dao.EF
 
             base.OnModelCreating(modelBuilder);
         }
+        
+        //public BaseRepositoryDao<T> Repository<T>() where T : BaseEntity
+        //{
+        //    if (repositories == null)
+        //    {
+        //        repositories = new Dictionary<string, object>();
+        //    }
 
+        //    var type = typeof(T).Name;
+
+        //    if (!repositories.ContainsKey(type))
+        //    {
+        //        var repositoryType = typeof(Repository<>);
+        //        var repositoryInstance = Activator.CreateInstance(repositoryType.MakeGenericType(typeof(T)), context);
+        //        repositories.Add(type, repositoryInstance);
+        //    }
+        //    return (Repository<t>)repositories[type];
+        //}
         #endregion
 
         #region IUnitOfWork members

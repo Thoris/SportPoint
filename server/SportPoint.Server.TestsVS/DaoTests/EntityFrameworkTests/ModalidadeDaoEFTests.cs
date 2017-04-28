@@ -61,6 +61,11 @@ namespace SportPoint.Server.TestsVS.DaoTests.EntityFrameworkTests
         {
             base.TestCount();
         }
+        [TestMethod]
+        public void TestIntegrationJogadorCountWhere()
+        {
+            base.TestCountWhere();
+        }
 
         #endregion
     }

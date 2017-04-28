@@ -36,6 +36,7 @@ namespace SportPoint.Server.TestsVS.IntegrationTests
             TestGetList();
             TestGetAll();
             TestCount();
+            TestCountWhere();
         }
 
         protected virtual T GenerateEntity()
@@ -101,6 +102,16 @@ namespace SportPoint.Server.TestsVS.IntegrationTests
 
             return result;
 
+        }
+        private void SetIdToObject(object obj, long id)
+        {
+            foreach (var property in obj.GetType().GetProperties())
+            {
+                if (string.Compare(property.Name, "Id", true) == 0)
+                {
+
+                }                                   
+            }
         }
 
         public void TestLoad()
@@ -246,6 +257,24 @@ namespace SportPoint.Server.TestsVS.IntegrationTests
             }
         }
         public void TestCount()
+        {
+            T entityToTest = GenerateEntity();
+            long countData = _obj.Count();
+            long resPrep = _obj.Insert(entityToTest);
+
+            try
+            {
+                long countVerify = _obj.Count();
+                Assert.AreEqual(countData + 1, countVerify);
+            }
+            finally
+            {
+                //Cleaning
+                bool resClean = _obj.Delete(entityToTest);
+
+            }
+        }
+        public void TestCountWhere()
         {
             T entityToTest = GenerateEntity();
             long countData = _obj.Count();
